@@ -14,7 +14,7 @@ var timeLeft = 60;
     //or if timer reaches 0 
 
 //Array of Questions and Answers from which the runQuiz() will pull from.
-var questions = [
+var questionsArray = [
     {
         question: "Question One?",
         answers: [

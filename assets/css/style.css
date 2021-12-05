@@ -41,14 +41,43 @@ header {
 .rules {
     display: flex;
     flex-direction: column;
+    justify-content: left;
 }
 
-.btn-start {}
+.btn-start {
+    margin-top: 50px;
+    background: rgb(70, 42, 42);
+    color: hsl(224, 70%, 80%);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
 
-.btn-start:hover {}
+.btn-start:hover,
+#answers button:hover {
+    background: lightskyblue;
+}
 
-#questions {}
-#answers {}
-#answers button {}
+#questions {
+    margin-top: 100px;
+    padding-bottom: 10px;
+}
 
-.answer {}
+#answers {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+#answers button {
+    color: linen;
+    background: maroon;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    width: 50%;
+}
+
+.answer {
+    width: 100%;
+    color: hsl(224, 70%, 80%);
+}
