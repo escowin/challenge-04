@@ -16,46 +16,46 @@ var timeLeft = 60;
 //Array of Questions and Answers from which the runQuiz() will pull from.
 var questionsArray = [
     {
-        question: "Question One?",
-        answers: [
-            "Answer One",
-            "Answer Two",
-            "Answer Three",
-            "Answer Four"
-        ],
-        correctAnswer: "Answer Two"
+        question: "What does the H T M and L stand for in html?",
+        answers: { 
+            a: "high terminal mass limit",
+            b: "hypertext markup language ",
+            c: "historical text maintained lever",
+            d: "hi-tech manipulative letters"
+        },
+        correctAnswer: "b"
     },
     {
-        question: "Question Two?",
-        answers: [
-            "Answer One",
-            "Answer Two",
-            "Answer Three",
-            "Answer Four"
-        ],
-        correctAnswer: "Answer Four"
+        question: "the c s s in CSS?",
+        answers: {
+            a: "cyber special speak",
+            b: "centralized systems search",
+            c: "contained site sensory",
+            d: "cascading style sheet"            
+        }
+        correctAnswer: "d"
     },
     {
-        question: "Question Three?",
-        answers: [
-            "Answer One",
-            "Answer Two",
-            "Answer Three",
-            "Answer Four"
-        ],
-        correctAnswer: "Answer Four"
+        question: "spaces are a no-no. how are words differentiated in js?",
+        answers: {
+            a: "likethisbecausewecanreadwords",
+            b: "just-dash-it-out",
+            c: "no_this_is_the_real_way",
+            d: "camelCaseOrLeave"            
+        }
+        correctAnswer: "d"
     },
     {
-        question: "Question Four?",
-        answers: [
-            "Answer One",
-            "Answer Two",
-            "Answer Three",
-            "Answer Four"
-        ],
-        correctAnswer: "Answer One"
+        question: "js and css use which two symbols to start/end code?",
+        answers: {
+            a: "semi-colon (;) and curly brackets ({})",
+            b: "tilde (~) and grave accent (`)",
+            c: "backslash (\) and fowardflash (/)",
+            d: "less than (<) and greater than (>)"            
+        }
+        correctAnswer: "a"
     }
-]
+];
 
 var questionCounter = 0
 var score = 0
