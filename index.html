@@ -2,22 +2,42 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>C O D I N G  Q U I Z</title>
         <link rel="stylesheet" href="./assets/css/style.css">
     </head>
     <body>
         <header>
-            <h1>C O D I N G  Q U I Z</h1>
-            <!--high scores left hand corner-->
-            <!--timer right hand corner-->
+            <!--high scores & time display in upper left & right hand corners respectively-->            
+            <div class="highScores">View H I G H Scores</div>
+            <div class="timer">T I M E : 60s</div>
         </header>
-        <main>
-            <!--section-->
-            <!--questions div-->
-            <!--multiple choice answers div-->
-            <!--correct/wrong-->
+
+        <main class="hero">
+            <!--quiz container, title & quiz parameter outline-->
+            <section class="quizContainer">
+                <div>
+                    <h1>C O D I N G: Q U I Z</h1>
+                </div>
+                <div>
+                    <p>test your c u r r e n t knowledge in C O D I N G.</p>
+                    <p>score will display at end.</p>
+                    <p><i>wrong answers deduct time from timer.</i></p>
+                    <p>save score by submitting your initials.</p>
+                </div>
+                <div>
+                    <button class="btn-start">
+                        sᴛᴀʀᴛ Q U I Z
+                    </button>
+                </div>
+            </section>
+
+            <!--after hitting start, questions & answers text generated dynamically from js--> 
+
+
+            <section class="answer"></section>
         </main> 
-        <footer></footer>        
         <script src="./assets/js/script.js"></script> 
     </body>
 </html>
