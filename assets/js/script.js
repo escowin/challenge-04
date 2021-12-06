@@ -1,7 +1,7 @@
 //relevant DOM elements
 var highScore = document.querySelector(".highScores");
 var preamble = document.querySelector(".preamble");
-var startEl= document.querySelector(".start");
+var start= document.querySelector("#start");
 var questionText = document.querySelector('#txt-question');
 var questionAnswers = document.querySelector("#txt-answers");
 var scoresTitle = document.querySelector("#scores-title");
@@ -81,7 +81,7 @@ var timer = function() {
     // 60 second timer. quiz ends if time reaches 0
 }
 
-var saveScores = function() {
+var saveScore = function() {
     // save score in local
 }
 
@@ -91,15 +91,15 @@ var viewHighScores = function() {
 
 
 // event listeners
-startEl.addEventListener('click', function() {
+start.addEventListener('click', function() {
     runQuiz();
 });
-startEl.addEventListener('click', function() {
+start.addEventListener('click', function() {
     timer();
 });
 viewhighScore.addEventListener('click', function() {
     viewHighScores();
 });
-saveScore.addEventListener('click', function() {
-    saveScore();
-});
+// saveScore.addEventListener('click', function() {
+//     saveScore();
+// });
