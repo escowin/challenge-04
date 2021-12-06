@@ -95,7 +95,7 @@ start.addEventListener('click', function() {
     runQuiz();
 });
 start.addEventListener('click', function() {
-    timer();
+    timerEl();
 });
 viewhighScore.addEventListener('click', function() {
     viewHighScores();

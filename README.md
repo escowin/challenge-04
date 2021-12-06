@@ -1,6 +1,13 @@
 # challenge-04
 Web APIs Challenge: Code Quiz
 
+Quiz is composed of four in d e p t h questions.
+
+HTML: minimalist approach.
+CSS: friendly to those who favor a dark-mode aesthetic.
+JS: The code that does the heavy lifting. Q&A Array, dynamically generated html and display texts, tapping into the DOM & API
+
+
 <!--AS A coding boot camp student
 I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
 SO THAT I can gauge my progress compared to my peers
