@@ -10,26 +10,32 @@
 
 /* CSS elements follow order of HTML elements */
 
-/* .highScores & .timer displayed upper left & right-hand corner respectively */
-header {
+/* clean link aesthetic to match .timer */
+a, a:link {
+    color: hsl(224, 70%, 80%);
+    text-decoration: none;
+}
+
+header, footer {
     display: flex;
     justify-content: space-between;
     margin: 10% 10%;
 }
 
-.highScores, .timer {
+#highScores, #timer {
     color: hsl(224, 70%, 80%);
+    border: none;
 }
 
 /* body elements */
 
-.hero {
+.codingQuiz {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.quizContainer {
+.preamble, .display-questions, .highscores {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,17 +50,19 @@ header {
     justify-content: left;
 }
 
-.btn-start {
+.start {
     margin-top: 50px;
     background: rgb(70, 42, 42);
     color: hsl(224, 70%, 80%);
     padding: 5px 10px;
-    border-radius: 5px;
+    border-radius: 8px;
+    border: none;
 }
 
 .btn-start:hover,
-#answers button:hover {
-    background: lightskyblue;
+#answers button:hover,
+#highScores:hover, #timer:hover {
+    background: rgb(81, 103, 117);
 }
 
 #questions {
@@ -73,7 +81,7 @@ header {
     background: maroon;
     padding: 5px 10px;
     margin-bottom: 20px;
-    border-radius: 5px;
+    border-radius: 8px;
     width: 50%;
 }
 

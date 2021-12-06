@@ -1,23 +1,20 @@
-//relevant IDs & elements from html
-var highScoresEl = document.querySelector(".highScores");
-var timerEl = document.querySelector(".timer");
-var heroEl = document.querySelector(".hero");
-var btnStartEl = document.querySelector(".btn-start");
-var answerEl = document.querySelector(".answer");
+//relevant DOM elements
+var highScore = document.querySelector(".highScores");
+var preamble = document.querySelector(".preamble");
+var startEl= document.querySelector(".start");
+var questionText = document.querySelector('#txt-question');
+var questionAnswers = document.querySelector("#txt-answers");
+var scoresTitle = document.querySelector("#scores-title");
+var scoresList = document.querySelector("#scores-ul");
+var answersEl = document.querySelector('.answers');
+var timerEl = document.querySelector("#timer");
+var seconds = 60;
 
-// timer
-var timeLeft = 60;
-
-    // countdown function that includes a time deduction penalty
-
-    //quiz ends after answering all questions
-    //or if timer reaches 0 
-
-//Array of Questions and Answers from which the runQuiz() will pull from.
-var questionsArray = [
+//Array of questions and answers
+var questions = [
     {
         question: "What does the H T M and L stand for in html?",
-        answers: { 
+        answer: { 
             a: "high terminal mass limit",
             b: "hypertext markup language ",
             c: "historical text maintained lever",
@@ -27,32 +24,32 @@ var questionsArray = [
     },
     {
         question: "the c s s in CSS?",
-        answers: {
+        answer: {
             a: "cyber special speak",
             b: "centralized systems search",
             c: "contained site sensory",
             d: "cascading style sheet"            
-        }
+        },
         correctAnswer: "d"
     },
     {
         question: "spaces are a no-no. how are words differentiated in js?",
-        answers: {
+        answer: {
             a: "likethisbecausewecanreadwords",
             b: "just-dash-it-out",
             c: "no_this_is_the_real_way",
             d: "camelCaseOrLeave"            
-        }
+        },
         correctAnswer: "d"
     },
     {
         question: "js and css use which two symbols to start/end code?",
-        answers: {
+        answer: {
             a: "semi-colon (;) and curly brackets ({})",
             b: "tilde (~) and grave accent (`)",
             c: "backslash (\) and fowardflash (/)",
             d: "less than (<) and greater than (>)"            
-        }
+        },
         correctAnswer: "a"
     }
 ];
@@ -60,28 +57,49 @@ var questionsArray = [
 var questionCounter = 0
 var score = 0
 
-//functions to run the quiz. show questions on index via dynamically generated html here
-
+//function runs quiz. show questions on index via dynamically generated html here
 var runQuiz = function() {
-
+    preamble.remove();
+    questionText.textContent = questions[questionCounter].question;
+    for (var N = 0; N < questions[questionCounter].answer.length; N++) {
+        var answersEl = document.createElement('button');
+        answersEl.textContent = questions[questionCounter].answer[N];
+        questionAnswer.append(answersEl);
+        answersEl.setAttribute("class", "answers");
+        answersEl.addEventListener('click', function(){
+            checkAnswer();
+        });
+    }
 };
-// function to check answer. answer correctly, move on to next.
-    // answer incorrectly, time deduction.
 
+var checkAnswer = function() {
+// checks answer. answer correctly, move on to next. answer incorrectly, time deduction.
+// "c o r r e c t" or "i n c o r r e c t" will display depending on user's answer
+}
 
-// function to show correct answer
+var timer = function() {
+    // 60 second timer. quiz ends if time reaches 0
+}
 
-//game over coda, save initials & score
+var saveScores = function() {
+    // save score in local
+}
+
 var viewHighScores = function() {
-    welcomeSection.remove();
-    scpreTitle.textContent = "h i g h  s c o r e:";
+    // view list of high scores saved locally
 };
 
 
-//Event Listeners to run above functions
-btnStartEl.addEventListener('click', function() {
+// event listeners
+startEl.addEventListener('click', function() {
     runQuiz();
 });
-highScoresEl.addEventListener('click', function() {
+startEl.addEventListener('click', function() {
+    timer();
+});
+viewhighScore.addEventListener('click', function() {
     viewHighScores();
+});
+saveScore.addEventListener('click', function() {
+    saveScore();
 });

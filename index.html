@@ -10,34 +10,49 @@
     <body>
         <header>
             <!--high scores & time display in upper left & right hand corners respectively-->            
-            <div class="highScores">View H I G H Scores</div>
-            <div class="timer">T I M E : 60s</div>
+            <button id="highScores">
+               H I G H Scores
+            </button>
+            <div id="timer">
+                T I M E : 60s
+            </div>
         </header>
 
-        <main class="hero">
+        <main class="codingQuiz">
             <!--quiz container, title & quiz parameter outline-->
-            <section class="quizContainer">
+            <section class="preamble">
                 <div>
                     <h1>C O D I N G: Q U I Z</h1>
                 </div>
                 <div>
                     <p>_test your c u r r e n t knowledge in C O D I N G.</p>
-                    <p>_score will display at end.</p>
-                    <p><i>_wrong answers deduct time from timer.</i></p>
-                    <p>_save score by submitting your initials.</p>
+                    <p>_score will display at ᴇɴᴅ.</p>
+                    <p><i>_wrong answers deduct t i m e from timer.</i></p>
+                    <p>_save score by submitting i n i t i a l s.</p>
                 </div>
                 <div>
-                    <button class="btn-start">
+                    <button id="start">
                         sᴛᴀʀᴛ Q U I Z
                     </button>
                 </div>
             </section>
 
-            <!--after hitting start, questions & answers text generated dynamically from js--> 
+            <!-- questions displayed via js -->
+            <section class="display-questions">
+                <h2 id="txt-question"></h2>
+                <div id="txt-answers"></div>
+            </section>
 
-
-            <section class="answer"></section>
+            <!-- score list -->
+            <section id="scores-list">
+                <h3 id="scores-title"></h3>
+                <ul id="scores-ul"></ul>
+            </section>
         </main> 
+
+        <footer>
+            <h3>challenge 04 by <a href="https://github.com/escowin">Edwin Escobar</a></h3>    
+        </footer>
         <script src="./assets/js/script.js"></script> 
     </body>
 </html>
