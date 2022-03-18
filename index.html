@@ -9,12 +9,15 @@
     </head>
     <body>
         <header>
-            <!-- clicking <#high-scores> adds .hide to both <.rules-container> & <.questions-container>, and removes .hide from <.scoreboard-container> -->
+            <!-- clicking <#high-scores>: 
+                1) .hide added <.rules-container> & <.questions-container>.
+                2) .hide removed <.scoreboard-container> -->
             <button class="btn" id="high-scores">
                H I G H Scores
             </button>
 
-            <!-- clicking <.start-btn> triggers <.timer> eventLister to begin countdown -->
+            <!-- clicking <.start-btn>:
+                1) triggers <.timer> eventLister to begin its countdown -->
             <div class="btn" id="timer">
                 T I M E : 60s
             </div>
@@ -36,12 +39,18 @@
             <!-- QUIZ CONTAINER -->
             <article id="questions-container" class="flexbox hide">
                 <h2 id="question">question</h2>
+                <!-- answer true, .true added -->
+                <!-- answer false, .false added -->
                 <button class="btn" id="answer-btns">answer 1</button>
                 <button class="btn" id="answer-btns">answer 2</button>
                 <button class="btn" id="answer-btns">answer 2</button>
                 <button class="btn" id="answer-btns">answer 2</button>
 
+                <!-- .hide removed after all questions answered -->
                 <button class="btn hide" id="save-btn">save score</button>
+                <!-- windowprompt to: type initials, submit/save, etc -->
+                <!-- .hide added to <#questions-container> after information is collected -->
+                <!-- .hide removed from <#scoreboard-container> -->
             </article>
             
             <!-- SCOREBOARD -->
