@@ -28,15 +28,15 @@ a {
 header, footer {
     display: flex;
     justify-content: space-between;
-    margin: 20px;
-    color: var(--tertiary);
 }
 
 header button, header div, #start {
+    margin: 25px;
     border-radius: 10px;
     border: none;
     padding: 10px;
     box-shadow: 5px 5px 10px var(--tertiary);
+    color: var(--tertiary);
 }
 
 footer {
@@ -92,7 +92,6 @@ footer a:hover {
 
 #start {
     margin-top: 50px;
-    color: var(--secondary);
 }
 
 #questions {
@@ -104,18 +103,4 @@ footer a:hover {
     display: flex;
     flex-direction: column;
     width: 90%;
-}
-
-#answers button {
-    color: linen;
-    background: maroon;
-    padding: 5px 10px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    width: 50%;
-}
-
-.answer {
-    width: 100%;
-    color: hsl(224, 70%, 80%);
 }
