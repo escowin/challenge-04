@@ -93,14 +93,3 @@ footer a:hover {
 #start {
     margin-top: 50px;
 }
-
-#questions {
-    margin-top: 100px;
-    padding-bottom: 10px;
-}
-
-#answers {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-}
