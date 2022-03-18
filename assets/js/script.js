@@ -53,6 +53,7 @@ var questions = [
 function startQuiz() {
     console.log('started')
     startButton.classList.add('hide')
+    preambleEl.classList.add('hide')
     shuffleQuestions = questions.sort(() => Math.random() - .5)
     questionsContainerEl.classList.remove('hide')
     currentQuestionsIndex = 0

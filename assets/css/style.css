@@ -37,10 +37,6 @@ a {
     text-shadow: -5px -5px 20px var(--secondary);
 }
 
-.hide {
-    display: none;
-}
-
 /* HEADER & FOOTER */
 
 header, footer {
@@ -101,4 +97,8 @@ h1 {
 
 #start-btn {
     margin-top: 50px;
+}
+
+.hide {
+    display: none;
 }
