@@ -22,7 +22,7 @@ a {
     text-decoration: none;
 }
 
-/* CSS elements follow order of HTML elements */
+/* HEADER & FOOTER */
 
 header, footer {
     display: flex;
@@ -36,6 +36,24 @@ header button, header div {
     border: none;
     padding: 10px;
     box-shadow: 5px 5px 10px var(--tertiary);
+}
+
+footer {
+    display: block;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer a {
+    color: var(--secondary);
+    text-shadow: 0px 0px 10px var(--secondary);
+    transition-duration: 1s;
+}
+
+footer a:hover {
+    color: var(--tertiary);
+    text-shadow: 0 0 20px var(--tertiary);
+
 }
 
 /* body elements */
