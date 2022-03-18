@@ -18,25 +18,26 @@
             </div>
         </header>
 
-        <main class="codingQuiz">
+        <main class="codingQuiz flexbox">
             <!--quiz container, title & quiz parameter outline-->
-            <section class="preamble">
+            <section class="preamble flexbox">
                 <h1>C O D I N G: Q U I Z</h1>
-                <div>
-                    <p>_test your c u r r e n t knowledge in C O D I N G.</p>
-                    <p>_score will display at ᴇɴᴅ.</p>
-                    <p><i>_wrong answers deduct t i m e from timer.</i></p>
-                    <p>_save score by submitting i n i t i a l s.</p>
+                <!-- QUIZ RULES -->
+                <div id="rules">
+                    <p>_<span class="emphasis">test</span> your c u r r e n t knowledge in <span class="small-caps">c o d i n g</span>.</p>
+                    <p>_<span class="emphasis">score</span> will display at the <span class="small-caps">e n d</span>.</p>
+                    <p>_<span class="emphasis">wrong</span> answers deduct time from <span class="small-caps">t i m e r</span>.</p>
+                    <p>_<span class="emphasis">save</span> score by submitting your <span class="small-caps">i n i t i a l s</span>.</p>
                 </div>
-                <div>
-                    <button id="start">
-                        sᴛᴀʀᴛ Q U I Z
-                    </button>
-                </div>
+
+                <!-- CLICK TO START -->
+                <button id="start">
+                    sᴛᴀʀᴛ Q U I Z
+                </button>
             </section>
 
             <!-- questions displayed via js -->
-            <section class="display-questions">
+            <section class="display-questions flexbox">
                 <h2 id="txt-question"></h2>
                 <div id="txt-answers"></div>
             </section>

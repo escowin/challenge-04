@@ -15,6 +15,7 @@
     font-family: 'Courier New', Courier, monospace;
     background-color: var(--primary);
     color: var(--secondary);
+    line-height: 1.25;
 }
 
 a {
@@ -53,45 +54,51 @@ footer a {
 footer a:hover {
     color: var(--tertiary);
     text-shadow: 0 0 20px var(--tertiary);
-
 }
 
-/* body elements */
+/* MAIN */
 
-.codingQuiz {
+.preamble {
+    padding: 50px;
+}
+
+.preamble h1 {
+    color: var(--tertiary);
+    text-shadow: 0px 0px 20px var(--tertiary);
+    margin: 20px;
+    font-size: 3vh;
+}
+
+.emphasis {
+    color: var(--tertiary);
+    font-weight: bolder;
+    text-shadow: 0px 0px 20px var(--tertiary);
+}
+
+.small-caps {
+    font-variant: small-caps;
+    font-weight: bold;
+    kerning: none;
+    color: var(--tertiary);
+    text-shadow: 0px 0px 20px var(--tertiary);
+}
+
+.flexbox {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-.preamble, .display-questions, .highscores {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    margin: 0 auto;
-}
-
-.rules {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
 }
 
 #start {
     margin-top: 50px;
-    background: rgb(70, 42, 42);
-    color: hsl(224, 70%, 80%);
-    padding: 5px 10px;
-    border-radius: 8px;
+    /* background: rgb(70, 42, 42); */
+    color: var(--secondary);
+    padding: 10px;
+    border-radius: 10px;
     border: none;
-}
+    box-shadow: 5px 5px 10px var(--tertiary);
 
-.btn-start:hover,
-#answers button:hover,
-#highScores:hover, #timer:hover {
-    background: rgb(81, 103, 117);
 }
 
 #questions {
