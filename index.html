@@ -18,35 +18,73 @@
             </div>
         </header>
 
-        <main class="codingQuiz">
+        <main class="codingQuiz" id="quiz-container">
+            <h1>C O D I N G: Q U I Z</h1>
+            <!-- RULES CONTAINER -->
+            <article id="rules-container" class="flexbox">
+                <h2>Parameters</h2>
+                <p>_<span class="emphasis">test</span> your c u r r e n t knowledge in <span class="small-caps">c o d i n g</span>.</p>
+                <p>_<span class="emphasis">score</span> will display at the <span class="small-caps">e n d</span>.</p>
+                <p>_<span class="emphasis">wrong</span> answers deduct time from <span class="small-caps">t i m e r</span>.</p>
+                <p>_<span class="emphasis">save</span> score by submitting your <span class="small-caps">i n i t i a l s</span>.</p>
+
+                <button class="btn" id="start-btn">sᴛᴀʀᴛ Q U I Z</button>    
+            </article>
+
+            <!-- QUIZ CONTAINER -->
+            <article id="questions-container" class="flexbox hide">
+                <h2 id="question">question</h2>
+                <button class="btn" id="answer-btns">answer 1</button>
+                <button class="btn" id="answer-btns">answer 2</button>
+                <button class="btn" id="answer-btns">answer 2</button>
+                <button class="btn" id="answer-btns">answer 2</button>
+
+                <button class="btn hide" id="save-btn">save score</button>
+            </article>
+            
+            <!-- SCOREBOARD -->
+            <article id="scoreboard-container" class="flexbox hide">
+                <h2 id="scoreboard-title">scoreboard</h2>
+                <ul id="scoreboard-list">
+                    <li id="score"></li>
+                </ul>
+            </article>
+
+            <!-- OLD CODE -->
             <!--quiz container, title & quiz parameter outline-->
-            <section id="preamble-container" class="flexbox">
-                <h1>C O D I N G: Q U I Z</h1>
+            <!-- <section id="quiz-container" class="flexbox"> -->
                 <!-- QUIZ RULES -->
-                <div id="rules">
+                <!-- <div id="rules">
+                    <h2>Parameters</h2>
                     <p>_<span class="emphasis">test</span> your c u r r e n t knowledge in <span class="small-caps">c o d i n g</span>.</p>
                     <p>_<span class="emphasis">score</span> will display at the <span class="small-caps">e n d</span>.</p>
                     <p>_<span class="emphasis">wrong</span> answers deduct time from <span class="small-caps">t i m e r</span>.</p>
-                    <p>_<span class="emphasis">save</span> score by submitting your <span class="small-caps">i n i t i a l s</span>.</p>
+                    <p>_<span class="emphasis">save</span> score by submitting your <span class="small-caps">i n i t i a l s</span>.</p> -->
+
+                    <!-- CLICK TO START -->
+                    <!-- <button class="btn" id="start-btn">
+                        sᴛᴀʀᴛ Q U I Z
+                    </button>                    
                 </div>
+                 -->
+                <!-- QUESTIONS. JS POPULATES CONTENT -->
+                <!-- <div id="questions-container" class="flexbox hide">
+                    <h2 id="question"></h2>
+                    <button class="btn" id="answer-btns"></button>
+                    <button class="btn" id="answer-btns"></button>
+                    <button class="btn" id="answer-btns"></button>
+                    <button class="btn" id="answer-btns"></button>
+                </div> -->
 
-                <!-- CLICK TO START -->
-                <button class="btn" id="start-btn">
-                    sᴛᴀʀᴛ Q U I Z
-                </button>
-            </section>
+                <!-- SCOREBOARD -->
+            <!-- </section> -->
 
-            <!-- questions displayed via js -->
-            <section id="questions-container" class="flexbox hide">
-                <h1 id="question"></h1>
-                <button class="btn" id="answer-btns"></div>
-            </section>
 
             <!-- score list -->
-            <section id="scores-list" class="hide">
+            <!-- <section id="scores-list" class="hide">
                 <h3 id="scores-title"></h3>
                 <ul id="scores-ul"></ul>
-            </section>
+            </section> -->
         </main> 
 
         <footer>
