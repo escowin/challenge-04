@@ -31,10 +31,11 @@ a {
 }
 
 .btn:hover {
-    color: var(--primary);
+    color: var(--secondary);
     background-color: var(--tertiary);
-    box-shadow: -5px -5px 30px 5px var(--secondary);
-    text-shadow: -5px -5px 20px var(--secondary);
+    box-shadow: 5px 5px 30px 5px var(--secondary);
+    font-weight: bolder;
+    text-shadow: 2 -2 2px var(--secondary);
 }
 
 /* HEADER & FOOTER */
