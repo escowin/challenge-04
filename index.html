@@ -18,9 +18,9 @@
             </div>
         </header>
 
-        <main class="codingQuiz flexbox">
+        <main class="codingQuiz">
             <!--quiz container, title & quiz parameter outline-->
-            <section class="preamble flexbox">
+            <section id="preamble" class="flexbox">
                 <h1>C O D I N G: Q U I Z</h1>
                 <!-- QUIZ RULES -->
                 <div id="rules">
@@ -38,8 +38,8 @@
 
             <!-- questions displayed via js -->
             <section id="questions-container" class="flexbox hide">
-                <h2 id="txt-question"></h2>
-                <div id="txt-answers"></div>
+                <h1 id="question" class="hide"></h2>
+                <button class="btn hide" id="answer-btns"></div>
             </section>
 
             <!-- score list -->

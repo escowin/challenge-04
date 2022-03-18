@@ -1,7 +1,9 @@
 const startButton = document.getElementById('start-btn')
+const preambleEl = document.getElementById('preamble')
 const questionsContainerEl = document.getElementById('questions-container')
 startButton.addEventListener('click', startQuiz)
 
+// const shuffleQuestions, currentQuestionsIndex
 
 // QUESTIONS & ANSWERS ARRAY
 var questions = [
@@ -51,14 +53,18 @@ var questions = [
 function startQuiz() {
     console.log('started')
     startButton.classList.add('hide')
+    shuffleQuestions = questions.sort(() => Math.random() - .5)
     questionsContainerEl.classList.remove('hide')
+    currentQuestionsIndex = 0
+    setNextQuestion()
 }
 
 function timer() {}
 
+function setNextQuestion() {}
+
 function selectAnswer() {}
 
-function nextQuestion() {}
 
 // GIVEN I am taking a code quiz
 // WHEN I click the start button
