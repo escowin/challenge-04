@@ -3,7 +3,7 @@ const preambleEl = document.getElementById('preamble')
 const questionsContainerEl = document.getElementById('questions-container')
 startButton.addEventListener('click', startQuiz)
 
-// const shuffleQuestions, currentQuestionsIndex
+let shuffleQuestions, currentQuestionsIndex
 
 // QUESTIONS & ANSWERS ARRAY
 var questions = [
