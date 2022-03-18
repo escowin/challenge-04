@@ -2,11 +2,7 @@
 :root {
     --primary: rgb(54, 49, 49);
     --secondary: rgb(212, 146, 126);
-    --tertiary: rgb(168, 187, 240);
-    --quaternary: rgb(81, 103, 117);
-    --quinary: linen;
-    --senary: rgb(128, 0, 0);
-}
+    --tertiary: rgb(168, 187, 240);}
     
 * {
     margin: 0;
@@ -23,20 +19,28 @@ a {
     text-decoration: none;
 }
 
-/* HEADER & FOOTER */
-
-header, footer {
-    display: flex;
-    justify-content: space-between;
-}
-
-header button, header div, #start {
-    margin: 25px;
+.btn {
+    margin: 30px;
     border-radius: 10px;
     border: none;
     padding: 10px;
     box-shadow: 5px 5px 10px var(--tertiary);
     color: var(--tertiary);
+    transition-duration: 1s;
+}
+
+.btn:hover {
+    color: var(--primary);
+    background-color: var(--tertiary);
+    box-shadow: -5px -5px 30px 5px var(--secondary);
+    text-shadow: -5px -5px 20px var(--secondary);
+}
+
+/* HEADER & FOOTER */
+
+header, footer {
+    display: flex;
+    justify-content: space-between;
 }
 
 footer {
@@ -90,6 +94,6 @@ footer a:hover {
     align-items: center;
 }
 
-#start {
+#start-btn {
     margin-top: 50px;
 }

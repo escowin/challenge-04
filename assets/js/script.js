@@ -1,16 +1,8 @@
-//relevant DOM elements
-var highScore = document.querySelector(".highScores");
-var preamble = document.querySelector(".preamble");
-var start= document.querySelector("#start");
-var questionText = document.querySelector('#txt-question');
-var questionAnswers = document.querySelector("#txt-answers");
-var scoresTitle = document.querySelector("#scores-title");
-var scoresList = document.querySelector("#scores-ul");
-var answersEl = document.querySelector('.answers');
-var timerEl = document.querySelector("#timer");
-var seconds = 60;
+const startButton = document.getElementById('start-btn')
+startButton.addEventListener('click', startQuiz)
 
-//Array of questions and answers
+
+// QUESTIONS & ANSWERS ARRAY
 var questions = [
     {
         question: "What does the H T M and L stand for in html?",
@@ -54,52 +46,11 @@ var questions = [
     }
 ];
 
-var questionCounter = 0
-var score = 0
 
-//function runs quiz. show questions on index via dynamically generated html here
-var runQuiz = function() {
-    preamble.remove();
-    questionText.textContent = questions[questionCounter].question;
-    for (var N = 0; N < questions[questionCounter].answer.length; N++) {
-        var answersEl = document.createElement('button');
-        answersEl.textContent = questions[questionCounter].answer[N];
-        questionAnswer.append(answersEl);
-        answersEl.setAttribute("class", "answers");
-        answersEl.addEventListener('click', function(){
-            checkAnswer();
-        });
-    }
-};
+function startQuiz() {}
 
-var checkAnswer = function() {
-// checks answer. answer correctly, move on to next. answer incorrectly, time deduction.
-// "c o r r e c t" or "i n c o r r e c t" will display depending on user's answer
-}
+function timer() {}
 
-var timer = function() {
-    // 60 second timer. quiz ends if time reaches 0
-}
+function selectAnswer() {}
 
-var saveScore = function() {
-    // save score in local
-}
-
-var viewHighScores = function() {
-    // view list of high scores saved locally
-};
-
-
-// event listeners
-start.addEventListener('click', function() {
-    runQuiz();
-});
-start.addEventListener('click', function() {
-    timerEl();
-});
-viewhighScore.addEventListener('click', function() {
-    viewHighScores();
-});
-// saveScore.addEventListener('click', function() {
-//     saveScore();
-// });
+function nextQuestion() {}
