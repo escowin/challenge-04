@@ -62,7 +62,10 @@ function startQuiz() {
 
 function timer() {}
 
-function setNextQuestion() {}
+// 1. start button > 2. select question from array > 3. display selected question > 4. select an answer > 5. determine if selected answer is correct > 6a. if yes: repeat 2 - 5 | 6b. if no: deduct 5s from timer, then repeat 2-5
+function setNextQuestion() {
+    showQuestion(shuffleQuestions[currentQuestionsIndex])
+}
 
 function selectAnswer() {}
 
