@@ -1,5 +1,5 @@
 const startButton = document.getElementById('start-btn')
-const preambleEl = document.getElementById('preamble')
+const preambleContainerEl = document.getElementById('preamble-container')
 const questionsContainerEl = document.getElementById('questions-container')
 startButton.addEventListener('click', startQuiz)
 
@@ -53,7 +53,7 @@ var questions = [
 function startQuiz() {
     console.log('started')
     startButton.classList.add('hide')
-    preambleEl.classList.add('hide')
+    preambleContainerEl.classList.add('hide')
     shuffleQuestions = questions.sort(() => Math.random() - .5)
     questionsContainerEl.classList.remove('hide')
     currentQuestionsIndex = 0
@@ -62,7 +62,7 @@ function startQuiz() {
 
 function timer() {}
 
-// 1. start button > 2. select question from array > 3. display selected question > 4. select an answer > 5. determine if selected answer is correct > 6a. if yes: repeat 2 - 5 | 6b. if no: deduct 5s from timer, then repeat 2-5
+// 1. start button > 2. randomly select question from array > 3. display selected question > 4. select an answer > 5. determine if selected answer is correct > 6a. if yes: repeat 2 - 5 | 6b. if no: deduct 5s from timer, then repeat 2-5
 function setNextQuestion() {
     showQuestion(shuffleQuestions[currentQuestionsIndex])
 }

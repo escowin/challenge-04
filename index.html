@@ -20,7 +20,7 @@
 
         <main class="codingQuiz">
             <!--quiz container, title & quiz parameter outline-->
-            <section id="preamble" class="flexbox">
+            <section id="preamble-container" class="flexbox">
                 <h1>C O D I N G: Q U I Z</h1>
                 <!-- QUIZ RULES -->
                 <div id="rules">
@@ -38,12 +38,12 @@
 
             <!-- questions displayed via js -->
             <section id="questions-container" class="flexbox hide">
-                <h1 id="question" class="hide"></h2>
-                <button class="btn hide" id="answer-btns"></div>
+                <h1 id="question"></h1>
+                <button class="btn" id="answer-btns"></div>
             </section>
 
             <!-- score list -->
-            <section id="scores-list">
+            <section id="scores-list" class="hide">
                 <h3 id="scores-title"></h3>
                 <ul id="scores-ul"></ul>
             </section>
