@@ -1,4 +1,5 @@
 const startButton = document.getElementById('start-btn')
+const questionsContainerEl = document.getElementById('questions-container')
 startButton.addEventListener('click', startQuiz)
 
 
@@ -49,6 +50,8 @@ var questions = [
 
 function startQuiz() {
     console.log('started')
+    startButton.classList.add('hide')
+    questionsContainerEl.classList.remove('hide')
 }
 
 function timer() {}

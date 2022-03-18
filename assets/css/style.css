@@ -36,6 +36,10 @@ a {
     text-shadow: -5px -5px 20px var(--secondary);
 }
 
+.hide {
+    display: none;
+}
+
 /* HEADER & FOOTER */
 
 header, footer {
