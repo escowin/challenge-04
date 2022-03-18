@@ -9,44 +9,49 @@ let shuffleQuestions, currentQuestionsIndex
 var questions = [
     {
         question: "What does the H T M and L stand for in html?",
-        answer: { 
-            a: "high terminal mass limit",
-            b: "hypertext markup language ",
-            c: "historical text maintained lever",
-            d: "hi-tech manipulative letters"
-        },
-        correctAnswer: "b"
+        answers: [
+            {   text: "high terminal mass limit", correct: false},
+            {   text: "hypertext markup language", correct: true},
+            {   text: "historical text maintained lever", correct: false},
+            {   text: "hi-tech manipulative letters", correct: false}
+        ]
     },
     {
         question: "the c s s in CSS?",
-        answer: {
-            a: "cyber special speak",
-            b: "centralized systems search",
-            c: "contained site sensory",
-            d: "cascading style sheet"            
-        },
-        correctAnswer: "d"
+        answers: [
+            {   text: "cyber specialized signals", correct: false},
+            {   text: "centralized search system", correct: false},
+            {   text: "contained site sensories", correct: false},
+            {   text: "cascading style sheet", correct: true}
+        ]
     },
     {
-        question: "spaces are a no-no. how are words differentiated in js?",
-        answer: {
-            a: "likethisbecausewecanreadwords",
-            b: "just-dash-it-out",
-            c: "no_this_is_the_real_way",
-            d: "camelCaseOrLeave"            
-        },
-        correctAnswer: "d"
+        question: "javascript is not a fan of spaces, the way to differentiate words is to",
+        answers: [
+            {   text: "typelikethisbecausewecanreadwords", correct: false},
+            {   text: "just-dash-out-legibility", correct: false},
+            {   text: "underscores_between_words", correct: false},
+            {   text: "useCamelCase", correct: true}
+        ]
     },
     {
-        question: "js and css use which two symbols to start/end code?",
-        answer: {
-            a: "semi-colon (;) and curly brackets ({})",
-            b: "tilde (~) and grave accent (`)",
-            c: "backslash (\) and fowardflash (/)",
-            d: "less than (<) and greater than (>)"            
-        },
-        correctAnswer: "a"
+        question: "javascript and css use which two symbols to start/end code?",
+        answers: [
+            {   text: "semi-colon (;) and curly brackets ({})", correct: true},
+            {   text: "tilde (~) and grave accent (`)", correct: false},
+            {   text: "backslash (\) and fowardflash (/)", correct: false},
+            {   text: "less than (<) and greater than (>)", correct: false}
+        ]
     }
+    // {
+    //     question: "",
+    //     answers: [
+    //         {   text: "", correct: false},
+    //         {   text: "", correct: false},
+    //         {   text: "", correct: false},
+    //         {   text: "", correct: false}
+    //     ]
+    // }
 ];
 
 
@@ -67,7 +72,17 @@ function setNextQuestion() {
     showQuestion(shuffleQuestions[currentQuestionsIndex])
 }
 
-function selectAnswer() {}
+function selectAnswer() {
+    quesionElement.innerText = question.question
+    question.answers.array.forEach(answer => {
+        const button = document.createElement('btn')
+        button.innerText = answer.innerText
+        button.classList.add('btn')
+        if (answer.correct) {
+            button.dataset.correct = answer.correct
+        }
+    });
+}
 
 
 // GIVEN I am taking a code quiz
