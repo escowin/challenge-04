@@ -1,30 +1,41 @@
-/* page aesthetic, dark-mode friendly color scheme */
+/* BASE PALETTE. 6 will become 4 */
+:root {
+    --primary: rgb(54, 49, 49);
+    --secondary: rgb(212, 146, 126);
+    --tertiary: rgb(168, 187, 240);
+    --quaternary: rgb(81, 103, 117);
+    --quinary: linen;
+    --senary: rgb(128, 0, 0);
+}
+    
 * {
     margin: 0;
     padding: 0;
     font-size: 100%;
     font-family: 'Courier New', Courier, monospace;
-    background-color: rgb(54, 49, 49);
-    color: rgb(212, 146, 126);
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+
+a {
+    color: var(--tertiary);
+    text-decoration: none;
 }
 
 /* CSS elements follow order of HTML elements */
 
-/* clean link aesthetic to match .timer */
-a, a:link {
-    color: hsl(224, 70%, 80%);
-    text-decoration: none;
-}
-
 header, footer {
     display: flex;
     justify-content: space-between;
-    margin: 10% 10%;
+    margin: 20px;
+    color: var(--tertiary);
 }
 
-#highScores, #timer {
-    color: hsl(224, 70%, 80%);
+header button, header div {
+    border-radius: 10px;
     border: none;
+    padding: 10px;
+    box-shadow: 5px 5px 10px var(--tertiary);
 }
 
 /* body elements */
