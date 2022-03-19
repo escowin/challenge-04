@@ -85,7 +85,6 @@ function showQuestion(question) {
         if (answer.correct) {
             button.dataset.correct = answer.correct
         }
-        // display created buttons, but the styling needs to change
         button.addEventListener('click', selectAnswer)
         answerButtonsEl.appendChild(button)
         console.log(answerButtonsEl)
