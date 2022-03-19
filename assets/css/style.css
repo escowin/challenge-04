@@ -13,7 +13,6 @@
     font-size: 100%;
     font-family: 'Courier New', Courier, monospace;
     line-height: 1.25;
-    background-color: var(--primary);
     color: var(--secondary); 
 }
 
@@ -25,9 +24,18 @@ body {
     align-items: center;
     width: 100%;
     flex-direction: column;
+    background-color: var(--primary);
 }
 
 /* HEADER & FOOTER */
+
+/* header, footer, main {
+    border-radius: 15px;
+    opacity: .8;
+    box-shadow: 5px 5px 10px var(--tertiary);
+
+} */
+
 header {
     margin-bottom: 25px;
     display: flex;
@@ -37,6 +45,7 @@ header {
 footer {
     text-align: center;
     padding: 25px;
+    margin-top: 25px;
 }
 
 footer a {
@@ -128,6 +137,7 @@ a {
     padding: 10px;
     box-shadow: 5px 5px 10px var(--tertiary);
     color: var(--tertiary);
+    background-color: var(--primary);
     transition-duration: 1s;
 }
 
@@ -145,14 +155,14 @@ a {
 
 
 /* JS MAGIC */
-.btn-wrong {
+.wrong {
     background-color: var(--wrong);
     color: var(--secondary);
     font-weight: bolder;
     box-shadow: 5px 5px 30px 5px var(--wrong);
 }
 
-.btn-correct {
+.correct {
     background-color: var(--correct);
     color: var(--tertiary);
     font-weight: bolder;
