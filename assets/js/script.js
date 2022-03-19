@@ -77,8 +77,14 @@ function setNextQuestion() {
 }
 
 function showQuestion(question) {
-    console.log(showQuestion)
     questionEl.innerText = question.question
+    question.answers.forEach(answer => {
+        const button = document.createElement('button')
+        button.innerText = answer.text
+        button.classList.add('btn')
+        console.log(button)
+
+    })
 }
 
 function selectAnswer() {
