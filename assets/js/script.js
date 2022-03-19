@@ -6,6 +6,7 @@ const rulesContainerEl = document.getElementById('rules-container')
 const questionsContainerEl = document.getElementById('questions-container')
 const questionEl = document.getElementById('question')
 const answerButtonsEl = document.getElementById('answer-btns')
+const buttonsEl = document.getElementsByClassName('btn')
 
 // gives quiz a touch of elegant chaos
 let shuffleQuestions, currentQuestionsIndex
@@ -59,74 +60,84 @@ var questions = [
     // }
 ];
 
+// 1. start button > 2. randomly select question from array > 3. display selected question > 4. select an answer > 5. determine if selected answer is correct > 6a. if yes: repeat 2 - 5 | 6b. if no: deduct 5s from timer, then repeat 2-5
+
+// clicked <#start-btn> triggers startQuiz()
 startButton.addEventListener('click', startQuiz)
+// clicked <#next-btn> triggers setNextQuestion()
 nextButton.addEventListener('click', () => {
     currentQuestionsIndex++
     setNextQuestion()
 })
 countdownTimerEl.addEventListener('click', updateCountdown)
 
-// countdown timer
+// COUNTDOWN TIMER
+const timeInMinutes = 10;
+const currentTime = Date.parse(new Date());
+const deadline = new Date(currentTime + timeInMinutes*60*1000);
 
-const startingSeconds = 60;
-let time = startingSeconds;
 
-function updateCountdown() {
-    const seconds = Math.floor(time / 60);
-    time--;
-    console.log(seconds)
-}
-
+// QUIZ LOGIC
 function startQuiz() {
-    console.log('started')
+    // <#start-btn> & <#rules-container> are visually hidden from user.
     startButton.classList.add('hide')
     rulesContainerEl.classList.add('hide')
+    // shuffles order of questions everytime user starts quiz
     shuffleQuestions = questions.sort(() => Math.random() - .5)
-    console.log(shuffleQuestions)
+    // <#question-container> visually appears for user
     questionsContainerEl.classList.remove('hide')
     currentQuestionsIndex = 0
+    // the next question is chosen from the 'var questions = [ARRAY]'
     setNextQuestion()
 }
 
-function timer() {}
-
-// 1. start button > 2. randomly select question from array > 3. display selected question > 4. select an answer > 5. determine if selected answer is correct > 6a. if yes: repeat 2 - 5 | 6b. if no: deduct 5s from timer, then repeat 2-5
+// 
 function setNextQuestion() {
-    // saveState()
+    // reset
     resetState()
+    // runs the function to show the next randomly selected question from array
     showQuestion(shuffleQuestions[currentQuestionsIndex])
 }
 
+
+// DISPLAYS JS QUESTION STRINGS IN HTML
 function showQuestion(question) {
+    // DISPLAYS QUESTION TEXT
     questionEl.innerText = question.question
+    // EACH POSSIBLE ANSWER IS SHOWN AS <button> WITHIN <#answer-btns></>
     question.answers.forEach(answer => {
+        // <button></>
         const button = document.createElement('button')
+        // <button>'answer string'</>
         button.innerText = answer.text
+        // <button class='btn'>'answer string'</>
         button.classList.add('btn')
         if (answer.correct) {
             button.dataset.correct = answer.correct
         }
+        // clicking correct <button class='btn'>'answer string'</> triggers selectAnswer()
         button.addEventListener('click', selectAnswer)
         answerButtonsEl.appendChild(button)
     })
 }
 
+// RESET LOGIC <#question-container>
 function resetState() {
     // will remove after I figure out how to not alter {background-color}. only want <.answer-btns> to change.
     clearStatusClass(document.body)
+    // <#next-btn> is hidden from view
     nextButton.classList.add('hide')
     while (answerButtonsEl.firstChild) {
         answerButtonsEl.removeChild(answerButtonsEl.firstChild)
     }
 }
-// function saveState() {
-//     saveButton.classList.add('hide')
-// }
 
+// SELECTING ANSWER LOGIC
 function selectAnswer(e) {
     const selectedButton = e.target
     const correct = selectedButton.dataset.correct
-    setStatusClass(document.body, correct)
+    // I've moved the altering from <body> to <#answer-btns>. goal: alter only <button></b>
+    setStatusClass(answerButtonsEl, correct)
     Array.from(answerButtonsEl.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
     })
