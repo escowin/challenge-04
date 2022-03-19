@@ -70,7 +70,7 @@ h1 {
 }
 
 h2 {
-    text-align: center;
+    /* text-align: center; */
     padding: 10px;
     margin-bottom: 5px;
     /* border: 1px solid red; */

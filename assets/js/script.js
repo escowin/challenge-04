@@ -1,4 +1,5 @@
 const startButton = document.getElementById('start-btn')
+const nextButton = document.getElementById('next-btn')
 const rulesContainerEl = document.getElementById('rules-container')
 const questionsContainerEl = document.getElementById('questions-container')
 const questionEl = document.getElementById('question')
@@ -73,6 +74,8 @@ function timer() {}
 
 // 1. start button > 2. randomly select question from array > 3. display selected question > 4. select an answer > 5. determine if selected answer is correct > 6a. if yes: repeat 2 - 5 | 6b. if no: deduct 5s from timer, then repeat 2-5
 function setNextQuestion() {
+    // saveState()
+    resetState()
     showQuestion(shuffleQuestions[currentQuestionsIndex])
 }
 
@@ -87,21 +90,33 @@ function showQuestion(question) {
         }
         button.addEventListener('click', selectAnswer)
         answerButtonsEl.appendChild(button)
-        console.log(answerButtonsEl)
     })
 }
 
-function selectAnswer() {
-    quesionElement.innerText = question.question
-    question.answers.array.forEach(answer => {
-        const button = document.createElement('btn')
-        button.innerText = answer.innerText
-        button.classList.add('btn')
-        if (answer.correct) {
-            button.dataset.correct = answer.correct
-        }
-    });
+function resetState() {
+    nextButton.classList.add('hide')
+    while (answerButtonsEl.firstChild) {
+        answerButtonsEl.removeChild(answerButtonsEl.firstChild)
+        console.log(answerButtonsEl)
+    }
 }
+// function saveState() {
+//     saveButton.classList.add('hide')
+// }
+
+function selectAnswer(e) {
+}
+// function selectAnswer() {
+//     quesionElement.innerText = question.question
+//     question.answers.array.forEach(answer => {
+//         const button = document.createElement('btn')
+//         button.innerText = answer.innerText
+//         button.classList.add('btn')
+//         if (answer.correct) {
+//             button.dataset.correct = answer.correct
+//         }
+//     });
+// }
 
 
 // GIVEN I am taking a code quiz
