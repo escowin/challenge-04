@@ -82,8 +82,13 @@ function showQuestion(question) {
         const button = document.createElement('button')
         button.innerText = answer.text
         button.classList.add('btn')
+        if (answer.correct) {
+            button.dataset.correct = answer.correct
+        }
+        // display created buttons, but the styling needs to change
+        button.addEventListener('click', selectAnswer)
+        answerButtonEl.appendChild(button)
         console.log(button)
-
     })
 }
 
