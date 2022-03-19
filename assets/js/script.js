@@ -1,7 +1,8 @@
 const startButton = document.getElementById('start-btn')
 const rulesContainerEl = document.getElementById('rules-container')
 const questionsContainerEl = document.getElementById('questions-container')
-startButton.addEventListener('click', startQuiz)
+const questionEl = document.getElementById('question')
+const answerButtonEl = document.getElementById('answer-btns')
 
 // gives quiz a touch of elegant chaos
 let shuffleQuestions, currentQuestionsIndex
@@ -55,6 +56,7 @@ var questions = [
     // }
 ];
 
+startButton.addEventListener('click', startQuiz)
 
 function startQuiz() {
     console.log('started')
@@ -72,6 +74,11 @@ function timer() {}
 // 1. start button > 2. randomly select question from array > 3. display selected question > 4. select an answer > 5. determine if selected answer is correct > 6a. if yes: repeat 2 - 5 | 6b. if no: deduct 5s from timer, then repeat 2-5
 function setNextQuestion() {
     showQuestion(shuffleQuestions[currentQuestionsIndex])
+}
+
+function showQuestion(question) {
+    console.log(showQuestion)
+    questionEl.innerText = question.question
 }
 
 function selectAnswer() {
