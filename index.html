@@ -25,14 +25,19 @@
 
         <main class="codingQuiz container" id="quiz-container">
             <h1>C O D I N G: Q U I Z</h1>
+
             <!-- RULES CONTAINER -->
             <article id="rules-container" class="flexbox">
                 <h2>Parameters</h2>
-                <p>_<span class="emphasis">test</span> your c u r r e n t knowledge in <span class="small-caps">c o d i n g</span>.</p>
-                <p>_<span class="emphasis">score</span> will display at the <span class="small-caps">e n d</span>.</p>
-                <p>_<span class="emphasis">wrong</span> answers deduct time from <span class="small-caps">t i m e r</span>.</p>
-                <p>_<span class="emphasis">save</span> score by submitting your <span class="small-caps">i n i t i a l s</span>.</p>
+                <section class="text">
+                    <p>_<span class="emphasis">test</span> your c u r r e n t knowledge in <span class="small-caps">c o d i n g</span>.</p>
+                    <p>_<span class="emphasis">score</span> will display at the <span class="small-caps">e n d</span>.</p>
+                    <p>_<span class="emphasis">wrong</span> answers deduct time from <span class="small-caps">t i m e r</span>.</p>
+                    <p>_<span class="emphasis">save</span> score by submitting your <span class="small-caps">i n i t i a l s</span>.</p>                    
+                </section>
+
             </article> 
+
             <!-- QUIZ CONTAINER -->
             <article id="questions-container" class="hide">
                 <h2 id="question">question</h2>
@@ -54,10 +59,11 @@
                     <li id="score">hey</li>
                 </ul>
             </article>
+
             <button class="btn" id="start-btn">sᴛᴀʀᴛ Q U I Z</button>   
     
-             <!-- .hide removed after all questions answered -->
-             <button class="btn hide" id="save-btn">save score</button>
+            <!-- .hide removed after all questions answered -->
+            <button class="btn hide" id="save-btn">save score</button>
             <!-- windowprompt to: type initials, submit/save, etc -->
             <!-- .hide added to <#questions-container> after information is collected -->
             <!-- .hide removed from <#scoreboard-container> -->    
