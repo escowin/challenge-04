@@ -1,5 +1,6 @@
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
+const saveButton = document.getElementById('save-btn')
 const rulesContainerEl = document.getElementById('rules-container')
 const questionsContainerEl = document.getElementById('questions-container')
 const questionEl = document.getElementById('question')
@@ -58,6 +59,10 @@ var questions = [
 ];
 
 startButton.addEventListener('click', startQuiz)
+nextButton.addEventListener('click', () => {
+    currentQuestionsIndex++
+    setNextQuestion()
+})
 
 function startQuiz() {
     console.log('started')
@@ -97,7 +102,6 @@ function resetState() {
     nextButton.classList.add('hide')
     while (answerButtonsEl.firstChild) {
         answerButtonsEl.removeChild(answerButtonsEl.firstChild)
-        console.log(answerButtonsEl)
     }
 }
 // function saveState() {
@@ -111,6 +115,15 @@ function selectAnswer(e) {
     Array.from(answerButtonsEl.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
     })
+    // checks for questions
+    if (shuffleQuestions.length > currentQuestionsIndex + 1) {
+        nextButton.classList.remove('hide')
+    } else {
+        saveButton.classList.remove('hide')
+    }
+    // next button appears after selecting an answer
+    console.log(setStatusClass)
+
 }
 
 function setStatusClass(element, correct) {
