@@ -99,6 +99,8 @@ function showQuestion(question) {
 }
 
 function resetState() {
+    // will remove after I figure out how to not alter {background-color}
+    clearStatusClass(document.body)
     nextButton.classList.add('hide')
     while (answerButtonsEl.firstChild) {
         answerButtonsEl.removeChild(answerButtonsEl.firstChild)
