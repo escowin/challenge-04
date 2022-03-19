@@ -53,10 +53,10 @@ footer a:hover {
 /* MAIN */
 main {
     padding: 10px;
-    border: 1px solid red;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* border: 1px solid red; */
 }
 
 h1 {
@@ -65,25 +65,26 @@ h1 {
     font-size: 100%;
     padding: 25px;
     margin-bottom: 10px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 h2 {
     text-align: center;
-    border: 1px solid red;
     padding: 10px;
     margin-bottom: 5px;
+    /* border: 1px solid red; */
 }
 
+
 article {
-    border: 1px solid red;
-    width: 50vw;
+    width: auto;
     padding: 25px;
+    border: 1px solid red;
 }
 
 .text {
-    border: 1px solid red;
     text-align: left;
+    /* border: 1px solid red; */
 }
 
 /* TEXT-RELATED */
