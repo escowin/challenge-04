@@ -3,7 +3,7 @@
     --primary: rgb(54, 49, 49);
     --secondary: rgb(212, 146, 126);
     --tertiary: rgb(168, 187, 240);
-    --wrong: rgb(75, 17, 17);
+    --wrong: rgb(124, 18, 18);
     --correct: rgb(24, 136, 138);
 }
     
@@ -153,16 +153,19 @@ a {
     background-color: var(--wrong);
     color: var(--secondary);
     font-weight: bolder;
-    box-shadow: 5px 5px 30px 5px var(--secondary);
+    box-shadow: 5px 5px 30px 5px var(--wrong);
 }
 
 .btn-correct {
     background-color: var(--correct);
     color: var(--tertiary);
     font-weight: bolder;
-    box-shadow: 5px 5px 30px 5px var(--tertiary);
+    box-shadow: 5px 5px 30px 5px var(--correct);
 }
 
+#scoreboard-list {
+    /* list-style: ; */
+}
 .hide {
     display: none;
 }
