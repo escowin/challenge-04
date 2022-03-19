@@ -2,7 +2,7 @@ const startButton = document.getElementById('start-btn')
 const rulesContainerEl = document.getElementById('rules-container')
 const questionsContainerEl = document.getElementById('questions-container')
 const questionEl = document.getElementById('question')
-const answerButtonEl = document.getElementById('answer-btns')
+const answerButtonsEl = document.getElementById('answer-btns')
 
 // gives quiz a touch of elegant chaos
 let shuffleQuestions, currentQuestionsIndex
@@ -87,8 +87,8 @@ function showQuestion(question) {
         }
         // display created buttons, but the styling needs to change
         button.addEventListener('click', selectAnswer)
-        answerButtonEl.appendChild(button)
-        console.log(button)
+        answerButtonsEl.appendChild(button)
+        console.log(answerButtonsEl)
     })
 }
 
