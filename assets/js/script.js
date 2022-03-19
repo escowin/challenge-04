@@ -1,8 +1,9 @@
 const startButton = document.getElementById('start-btn')
-const preambleContainerEl = document.getElementById('preamble-container')
+const rulesContainerEl = document.getElementById('rules-container')
 const questionsContainerEl = document.getElementById('questions-container')
 startButton.addEventListener('click', startQuiz)
 
+// gives quiz a touch of elegant chaos
 let shuffleQuestions, currentQuestionsIndex
 
 // QUESTIONS & ANSWERS ARRAY
@@ -58,8 +59,9 @@ var questions = [
 function startQuiz() {
     console.log('started')
     startButton.classList.add('hide')
-    preambleContainerEl.classList.add('hide')
+    rulesContainerEl.classList.add('hide')
     shuffleQuestions = questions.sort(() => Math.random() - .5)
+    console.log(shuffleQuestions)
     questionsContainerEl.classList.remove('hide')
     currentQuestionsIndex = 0
     setNextQuestion()
