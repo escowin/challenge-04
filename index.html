@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="./assets/css/style.css">
     </head>
     <body>
-        <header>
+        <header id="stat-btns">
             <!-- clicking <#high-scores>: 
                 1) .hide added <.rules-container> & <.questions-container>.
                 2) .hide removed <.scoreboard-container> -->
@@ -18,9 +18,9 @@
 
             <!-- clicking <.start-btn>:
                 1) triggers <.timer> eventLister to begin its countdown -->
-            <div class="btn" id="timer">
+            <button class="btn" id="countdown-timer">
                 T I M E : 60s
-            </div>
+            </button>
         </header>
 
         <main class="codingQuiz" id="quiz-container">

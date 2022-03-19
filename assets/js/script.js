@@ -1,6 +1,7 @@
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
 const saveButton = document.getElementById('save-btn')
+const countdownTimerEl = document.getElementById('countdown-timer')
 const rulesContainerEl = document.getElementById('rules-container')
 const questionsContainerEl = document.getElementById('questions-container')
 const questionEl = document.getElementById('question')
@@ -63,6 +64,18 @@ nextButton.addEventListener('click', () => {
     currentQuestionsIndex++
     setNextQuestion()
 })
+countdownTimerEl.addEventListener('click', updateCountdown)
+
+// countdown timer
+
+const startingSeconds = 60;
+let time = startingSeconds;
+
+function updateCountdown() {
+    const seconds = Math.floor(time / 60);
+    time--;
+    console.log(seconds)
+}
 
 function startQuiz() {
     console.log('started')
@@ -99,7 +112,7 @@ function showQuestion(question) {
 }
 
 function resetState() {
-    // will remove after I figure out how to not alter {background-color}
+    // will remove after I figure out how to not alter {background-color}. only want <.answer-btns> to change.
     clearStatusClass(document.body)
     nextButton.classList.add('hide')
     while (answerButtonsEl.firstChild) {
@@ -125,7 +138,6 @@ function selectAnswer(e) {
     }
     // next button appears after selecting an answer
     console.log(setStatusClass)
-
 }
 
 function setStatusClass(element, correct) {
@@ -141,17 +153,6 @@ function clearStatusClass(element) {
     element.classList.remove('correct')
     element.classList.remove('wrong')
 }
-// function selectAnswer() {
-//     quesionElement.innerText = question.question
-//     question.answers.array.forEach(answer => {
-//         const button = document.createElement('btn')
-//         button.innerText = answer.innerText
-//         button.classList.add('btn')
-//         if (answer.correct) {
-//             button.dataset.correct = answer.correct
-//         }
-//     });
-// }
 
 
 // GIVEN I am taking a code quiz
