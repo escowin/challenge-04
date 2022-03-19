@@ -6,7 +6,6 @@ const rulesContainerEl = document.getElementById('rules-container')
 const questionsContainerEl = document.getElementById('questions-container')
 const questionEl = document.getElementById('question')
 const answerButtonsEl = document.getElementById('answer-btns')
-const buttonsEl = document.getElementsByClassName('btn')
 
 // gives quiz a touch of elegant chaos
 let shuffleQuestions, currentQuestionsIndex
@@ -69,12 +68,14 @@ nextButton.addEventListener('click', () => {
     currentQuestionsIndex++
     setNextQuestion()
 })
-countdownTimerEl.addEventListener('click', updateCountdown)
 
 // COUNTDOWN TIMER
-const timeInMinutes = 10;
-const currentTime = Date.parse(new Date());
-const deadline = new Date(currentTime + timeInMinutes*60*1000);
+
+// countdownTimerEl.addEventListener('click', updateCountdown)
+
+// const timeInMinutes = 10;
+// const currentTime = Date.parse(new Date());
+// const deadline = new Date(currentTime + timeInMinutes*60*1000);
 
 
 // QUIZ LOGIC
@@ -123,7 +124,6 @@ function showQuestion(question) {
 
 // RESET LOGIC <#question-container>
 function resetState() {
-    // will remove after I figure out how to not alter {background-color}. only want <.answer-btns> to change.
     clearStatusClass(document.body)
     // <#next-btn> is hidden from view
     nextButton.classList.add('hide')
@@ -136,19 +136,18 @@ function resetState() {
 function selectAnswer(e) {
     const selectedButton = e.target
     const correct = selectedButton.dataset.correct
-    // I've moved the altering from <body> to <#answer-btns>. goal: alter only <button></b>
-    setStatusClass(answerButtonsEl, correct)
-    Array.from(answerButtonsEl.children).forEach(button => {
+    // I've moved the altering from <body> to <#questions-container>. goal: alter only <button></b>
+    setStatusClass(questionsContainerEl, correct)
+    Array.from(questionEl.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
     })
-    // checks for questions
+    // <#next-btn> visually appears after selecting a <button>'answer string'</>
     if (shuffleQuestions.length > currentQuestionsIndex + 1) {
         nextButton.classList.remove('hide')
+    // <#save-btn> visuallly appears after going through all of the questions[]
     } else {
         saveButton.classList.remove('hide')
     }
-    // next button appears after selecting an answer
-    console.log(setStatusClass)
 }
 
 function setStatusClass(element, correct) {
@@ -160,20 +159,24 @@ function setStatusClass(element, correct) {
     }
 }
 
+// LOGIC: clears the .correct & .wrong from <#questions-container> & <buttons>
 function clearStatusClass(element) {
     element.classList.remove('correct')
     element.classList.remove('wrong')
 }
 
 
-// GIVEN I am taking a code quiz
 // WHEN I click the start button
-// THEN a timer starts and I am presented with a question
+// THEN a timer starts AND I am presented with a question
+
 // WHEN I answer a question
 // THEN I am presented with another question
+
 // WHEN I answer a question incorrectly
 // THEN time is subtracted from the clock
-// WHEN all questions are answered or the timer reaches 0
+
+// WHEN all questions are answered OR the timer reaches 0
 // THEN the game is over
+
 // WHEN the game is over
 // THEN I can save my initials and score
