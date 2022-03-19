@@ -110,7 +110,8 @@ a {
 .btn {
     margin: 30px;
     border-radius: 10px;
-    width: 175px;
+    /* width: 175px; */
+    width: auto;
     border: none;
     padding: 10px;
     box-shadow: 5px 5px 10px var(--tertiary);
