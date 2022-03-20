@@ -29,13 +29,6 @@ body {
 
 /* HEADER & FOOTER */
 
-/* header, footer, main {
-    border-radius: 15px;
-    opacity: .8;
-    box-shadow: 5px 5px 10px var(--tertiary);
-
-} */
-
 header {
     margin-bottom: 25px;
     display: flex;
@@ -65,7 +58,6 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* border: 1px solid red; */
 }
 
 h1 {
@@ -75,14 +67,12 @@ h1 {
     font-size: 3vh;
     padding: 20px;
     /* margin-bottom: 10px; */
-    /* border: 1px solid red; */
 }
 
 h2 {
     /* text-align: center; */
     padding: 10px;
     margin-bottom: 5px;
-    /* border: 1px solid red; */
 }
 
 
@@ -90,13 +80,17 @@ article {
     width: auto;
     padding: 25px;
     border-radius: 15px;
-    /* border: 1px solid red; */
 }
 
 .text {
     text-align: left;
-    /* border: 1px solid red; */
 }
+
+/* .answer-btns {
+    display: block;
+    justify-content: left;
+    align-items: center;
+} */
 
 /* TEXT-RELATED */
 a {

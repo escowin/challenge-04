@@ -124,7 +124,8 @@ function showQuestion(question) {
 
 // RESET LOGIC <#question-container>
 function resetState() {
-    clearStatusClass(document.body)
+    // removes .correct/.wrong from <section id='questions-container'>
+    clearStatusClass(questionsContainerEl)
     // <#next-btn> is hidden from view
     nextButton.classList.add('hide')
     while (answerButtonsEl.firstChild) {
