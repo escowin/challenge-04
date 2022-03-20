@@ -153,8 +153,10 @@ function selectAnswer(e) {
 
 function setStatusClass(element, correct) {
     clearStatusClass(element)
+    // answers [text: '', correct] = .correct added
     if (correct) {
         element.classList.add('correct')
+    // answers [text:'', wrong] = .wrong added
     } else {
         element.classList.add('wrong')
     }
