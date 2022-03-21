@@ -69,18 +69,21 @@ var questions = [
     // clicking <#next-btn> triggers setNextQuestion()
     // clicking <#save-btn> triggers saveScore()
     // clicking <#scores-btn> triggers showHighScores()
-startButton.addEventListener('click', startQuiz)
+startButton.addEventListener('click', startQuiz, countdownTimer)
+console.log(startButton)
 nextButton.addEventListener('click', () => {
     currentQuestionsIndex++
     setNextQuestion()
 })
+console.log(nextButton)
 saveButton.addEventListener('click', saveScore())
+console.log(saveButton)
 scoresButton.addEventListener('click', showHighScores())
 console.log(scoresButton)
 
 
 // COUNTDOWN TIMER
-
+function countdownTimer() {}
 // countdownTimerEl.addEventListener('click', updateCountdown)
 
 // const timeInMinutes = 10;
