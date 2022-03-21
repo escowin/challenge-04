@@ -74,12 +74,11 @@ saveButton.addEventListener('click', saveScore())
 scoresButton.addEventListener('click', showHighScores())
 
 
-// COUNTDOWN TIMER | on screen, <#countdown-timer></> displays time, starting from 60s ending at 0s. the time displayed is connected to the countdown time of the function.
+// COUNTDOWN TIMER | <#countdown-timer></> displays time on screen (start time 60s, end time 0s). the displayed time is connected to countdownTimer() time data. onscreen text auto updates every second.
 function countdownTimer() {
     // countdownTimerEl. 
     // <button></>
     // const button = document.createElement('button')
-
     // <button>##s</>
     // button.innerText = TIME (shown as ['##'s])
 
@@ -90,7 +89,7 @@ function countdownTimer() {
 
     // if user's answer is WRONG, 10s is deducted from countdownTimer(). TIME displayed on screen will reflect that.
 }
-
+console.log(countdownTimer)
 
 // QUIZ LOGIC
 function startQuiz() {
@@ -180,7 +179,12 @@ function clearStatusClass(element) {
     element.classList.remove('wrong')
 }
 
-function saveScore() {}
+function saveScore() {
+    // CLICKING <button id='save-btn'></> prompts user to ENTER initials (2 character limit). Saving initials includes score data: how many questions were answered correctly (format: [# correctly answered]/[# of total questions]) & within (format: [##]s)
+    // saved data is displayed as 'text' in <#scoreboard-container></>
+        // EX: INITIALS SCORE TIME
+        // EX: EE 4/5 10s
+}
 function showHighScores() {}
 
 // WHEN I click the start button
