@@ -4,7 +4,6 @@ const saveButton = document.getElementById('save-btn')
 const scoresButton = document.getElementById('scores-btn')
 const countdownTimerEl = document.getElementById('countdown-timer')
 const scoreboardContainerEl = document.getElementById('scoreboard-container')
-console.log(scoreboardContainerEl)
 const rulesContainerEl = document.getElementById('rules-container')
 const questionsContainerEl = document.getElementById('questions-container')
 const questionEl = document.getElementById('question')
@@ -75,13 +74,22 @@ saveButton.addEventListener('click', saveScore())
 scoresButton.addEventListener('click', showHighScores())
 
 
-// COUNTDOWN TIMER. 
-function countdownTimer() {}
-// countdownTimerEl.addEventListener('click', updateCountdown)
+// COUNTDOWN TIMER | on screen, <#countdown-timer></> displays time, starting from 60s ending at 0s. the time displayed is connected to the countdown time of the function.
+function countdownTimer() {
+    // countdownTimerEl. 
+    // <button></>
+    // const button = document.createElement('button')
 
-// const timeInMinutes = 10;
-// const currentTime = Date.parse(new Date());
-// const deadline = new Date(currentTime + timeInMinutes*60*1000);
+    // <button>##s</>
+    // button.innerText = TIME (shown as ['##'s])
+
+    // <button class='btn'>##s</>
+    // button.classList.add('btn')
+
+    // if TIME reaches 00s, a <button id='save-btn'> appears in <button id='countdown-timer'> place. <#save-btn> will be linked to saveScore().
+
+    // if user's answer is WRONG, 10s is deducted from countdownTimer(). TIME displayed on screen will reflect that.
+}
 
 
 // QUIZ LOGIC
@@ -97,15 +105,13 @@ function startQuiz() {
     // the next question is chosen from the 'var questions = [ARRAY]'
     setNextQuestion()
 }
-
-// 
+ 
 function setNextQuestion() {
     // reset
     resetState()
     // runs the function to show the next randomly selected question from array
     showQuestion(shuffleQuestions[currentQuestionsIndex])
 }
-
 
 // DISPLAYS JS QUESTION STRINGS IN HTML
 function showQuestion(question) {
