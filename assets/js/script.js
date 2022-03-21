@@ -2,8 +2,9 @@ const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
 const saveButton = document.getElementById('save-btn')
 const scoresButton = document.getElementById('scores-btn')
-
 const countdownTimerEl = document.getElementById('countdown-timer')
+const scoreboardContainerEl = document.getElementById('scoreboard-container')
+console.log(scoreboardContainerEl)
 const rulesContainerEl = document.getElementById('rules-container')
 const questionsContainerEl = document.getElementById('questions-container')
 const questionEl = document.getElementById('question')
@@ -65,24 +66,16 @@ var questions = [
 
 
 // ONSCREEN BUTTON EVENT LISTENERS
-    // clicking <#start-btn> triggers startQuiz() and countdownTimer()
-    // clicking <#next-btn> triggers setNextQuestion()
-    // clicking <#save-btn> triggers saveScore()
-    // clicking <#scores-btn> triggers showHighScores()
 startButton.addEventListener('click', startQuiz, countdownTimer)
-console.log(startButton)
 nextButton.addEventListener('click', () => {
     currentQuestionsIndex++
     setNextQuestion()
 })
-console.log(nextButton)
 saveButton.addEventListener('click', saveScore())
-console.log(saveButton)
 scoresButton.addEventListener('click', showHighScores())
-console.log(scoresButton)
 
 
-// COUNTDOWN TIMER
+// COUNTDOWN TIMER. 
 function countdownTimer() {}
 // countdownTimerEl.addEventListener('click', updateCountdown)
 
