@@ -1,6 +1,8 @@
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
 const saveButton = document.getElementById('save-btn')
+const scoresButton = document.getElementById('scores-btn')
+
 const countdownTimerEl = document.getElementById('countdown-timer')
 const rulesContainerEl = document.getElementById('rules-container')
 const questionsContainerEl = document.getElementById('questions-container')
@@ -61,13 +63,21 @@ var questions = [
 
 // 1. start button > 2. randomly select question from array > 3. display selected question > 4. select an answer > 5. determine if selected answer is correct > 6a. if yes: repeat 2 - 5 | 6b. if no: deduct 5s from timer, then repeat 2-5
 
-// clicked <#start-btn> triggers startQuiz()
+
+// ONSCREEN BUTTON EVENT LISTENERS
+    // clicking <#start-btn> triggers startQuiz() and countdownTimer()
+    // clicking <#next-btn> triggers setNextQuestion()
+    // clicking <#save-btn> triggers saveScore()
+    // clicking <#scores-btn> triggers showHighScores()
 startButton.addEventListener('click', startQuiz)
-// clicked <#next-btn> triggers setNextQuestion()
 nextButton.addEventListener('click', () => {
     currentQuestionsIndex++
     setNextQuestion()
 })
+saveButton.addEventListener('click', saveScore())
+scoresButton.addEventListener('click', showHighScores())
+console.log(scoresButton)
+
 
 // COUNTDOWN TIMER
 
@@ -168,6 +178,8 @@ function clearStatusClass(element) {
     element.classList.remove('wrong')
 }
 
+function saveScore() {}
+function showHighScores() {}
 
 // WHEN I click the start button
 // THEN a timer starts AND I am presented with a question
