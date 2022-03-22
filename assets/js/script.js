@@ -74,8 +74,10 @@ saveButton.addEventListener('click', saveScore())
 scoresButton.addEventListener('click', showHighScores())
 
 
-// COUNTDOWN TIMER | <#countdown-timer></> displays time on screen (start time 60s, end time 0s). the displayed time is connected to countdownTimer() time data. onscreen text auto updates every second.
+// COUNTDOWN TIMER | DATA to ON SCREEN 'TEXT'
 function countdownTimer() {
+    // <#countdown-timer></> displays time on screen (start time 60s, end time 0s). the displayed time is connected to countdownTimer() time data. onscreen text auto updates every second.
+
     // countdownTimerEl. 
     // <button></>
     // const button = document.createElement('button')
@@ -91,32 +93,25 @@ function countdownTimer() {
 }
 console.log(countdownTimer)
 
-// QUIZ LOGIC
+// QUIZ LOGIC | HIDING INITIAL ELEMENTS, CHOOSING 1st QUESTION RANDOMLY FROM ARRAY. NEXT QUESTION SET via setNextQuetion()
 function startQuiz() {
-    // <#start-btn> & <#rules-container> are visually hidden from user.
     startButton.classList.add('hide')
     rulesContainerEl.classList.add('hide')
-    // shuffles order of questions everytime user starts quiz
     shuffleQuestions = questions.sort(() => Math.random() - .5)
-    // <#question-container> visually appears for user
     questionsContainerEl.classList.remove('hide')
     currentQuestionsIndex = 0
-    // the next question is chosen from the 'var questions = [ARRAY]'
     setNextQuestion()
 }
- 
+
+// QUIZ LOGIC CONT. | RESETS <section id='questions-container'></>, SHOWS THE NEXT QUESTION RANDOMLY CHOSEN FROM ARRAY.
 function setNextQuestion() {
-    // reset
     resetState()
-    // runs the function to show the next randomly selected question from array
     showQuestion(shuffleQuestions[currentQuestionsIndex])
 }
 
-// DISPLAYS JS QUESTION STRINGS IN HTML
+// QUIZ LOGIC CONT. | GENERATING HTML ELEMENTS TO DISPLAY QUESTION & ANSWERS IN <section id='questions-container'></>
 function showQuestion(question) {
-    // DISPLAYS QUESTION TEXT
     questionEl.innerText = question.question
-    // EACH POSSIBLE ANSWER IS SHOWN AS <button> WITHIN <#answer-btns></>
     question.answers.forEach(answer => {
         // <button></>
         const button = document.createElement('button')
@@ -133,18 +128,16 @@ function showQuestion(question) {
     })
 }
 
-// RESET LOGIC <#question-container>
+// QUIZ LOGIC CONT. | REMOVES CURRENT HTML ELEMENTS FROM <section id='questions-container'></> 
 function resetState() {
-    // removes .correct/.wrong from <section id='questions-container'>
     clearStatusClass(questionsContainerEl)
-    // <#next-btn> is hidden from view
     nextButton.classList.add('hide')
     while (answerButtonsEl.firstChild) {
         answerButtonsEl.removeChild(answerButtonsEl.firstChild)
     }
 }
 
-// SELECTING ANSWER LOGIC
+// SELECTING ANSWER LOGIC | 
 function selectAnswer(e) {
     const selectedButton = e.target
     const correct = selectedButton.dataset.correct
