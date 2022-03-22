@@ -172,6 +172,12 @@ function clearStatusClass(element) {
     element.classList.remove('wrong')
 }
 
+// TRACKING SCORE LOGIC
+function trackingScore () {
+    // correct answer adds 1pt to score
+    // wrong answer adds 0pts to score, and deducts 10s from countdownTimer()
+}
+
 function saveScore() {
     // CLICKING <button id='save-btn'></> prompts user to ENTER initials (2 character limit). Saving initials includes score data: how many questions were answered correctly (format: [# correctly answered]/[# of total questions]) & within (format: [##]s)
     // saved data is displayed as 'text' in <#scoreboard-container></>
