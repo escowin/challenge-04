@@ -8,82 +8,13 @@
         <link rel="stylesheet" href="./assets/css/style.css">
     </head>
     <body>
-        <header id="stat-btns">
-            <!-- clicking <#high-scores>: 
-                1) .hide added <.rules-container> & <.questions-container>.
-                2) .hide removed <.scoreboard-container> -->
-            <button class="btn" id="scores-btn">
-               H I G H Scores
-            </button>
-
-            <!-- clicking <.start-btn>:
-                1) triggers <.timer> eventLister to begin its countdown -->
-            <button class="btn" id="countdown-timer">
-                T I M E : 60s
-            </button>
+        <header>
+            <nav>
+                <button id="start-button">start button</button>
+            </nav>
         </header>
-
-        <main class="codingQuiz" id="quiz-container">
-            <h1>C O D I N G: Q U I Z</h1>
-
-            <!-- RULES CONTAINER -->
-            <article id="rules-container">
-                <h2 class="small-caps" id="rules-title">Parameters</h2>
-                <section class="text" id="rules">
-                    <p>_<span class="emphasis">test</span> your c u r r e n t knowledge in <span class="small-caps">c o d i n g</span>.</p>
-                    <p>_<span class="emphasis">score</span> will display at the <span class="small-caps">e n d</span>.</p>
-                    <p>_<span class="emphasis">wrong</span> answers deduct time from <span class="small-caps">t i m e r</span>.</p>
-                    <p>_<span class="emphasis">save</span> score by submitting your <span class="small-caps">i n i t i a l s</span>.</p>                    
-                </section>
-
-            </article> 
-
-            <!-- QUIZ CONTAINER -->
-            <article id="questions-container" class="hide">
-                <h2 id="question">question</h2>
-                <!-- answer true, .true added -->
-                <!-- answer false, .false added -->
-                <section class="text" id="answer-btns">
-                    <button class="btn">answer 1</button>
-                    <button class="btn">answer 2</button>
-                    <button class="btn">answer 3</button>
-                    <button class="btn">answer 4</button>                    
-                </section>
-
-            </article>
-            
-            <!-- SCOREBOARD -->
-            <article id="scoreboard-container" class="hide">
-                <h2 id="scoreboard-title">scoreboard</h2>
-                <ol id="scoreboard-list">
-                    <li id="score">hey</li>
-                    <li id="score">hey</li>
-                    <li id="score">hey</li>
-                    <li id="score">hey</li>
-                </ul>
-            </article>
-
-            <!-- CONTROL BUTTONS -->
-            <article id="controls">
-                <button class="btn" id="start-btn">sᴛᴀʀᴛ Q U I Z</button>
-
-                <!-- look into how to combine the () of clicking <#next-btn> with <#answer-btn> -->
-                <button class="btn hide" id="next-btn">next</button>              
-                <!-- .hide removed after all questions answered -->
-                <button class="btn hide" id="save-btn">save score</button>
-                <!-- windowprompt to: type initials, submit/save, etc -->
-                <!-- .hide added to <#questions-container> after information is collected -->
-                <!-- .hide removed from <#scoreboard-container> -->                  
-            </article>
-
-    
-  
-        </main> 
-
-        <footer>
-            <h3>Challenge 04 by <a href="https://github.com/escowin">Edwin Escobar</a></h3>
-            <p>&copy; 2022 Escowin Art</p> 
-        </footer>
+        <main>main</main>
+        <footer>footer</footer>
         <script src="./assets/js/script.js"></script> 
     </body>
 </html>
