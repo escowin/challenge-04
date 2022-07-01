@@ -5,13 +5,33 @@ var startButtonEl = document.querySelector('#start-button');
 
 // logic.quiz
 var startQuiz = function() {
-    console.log("quiz will present a multiple choice question")
-}
+    var questions = [
+        {
+            question: "HTML?",
+            choices: {
+                a: "yay", 
+                b: "nay", 
+                c: "abstain"
+            },
+            answer: "a"
+        },
+        {
+            question: "CSS?",
+            choices: {
+                a: "what", 
+                b: "who", 
+                c: "why"
+            },
+            answer: "b"
+        },
+       ];
+    console.log(questions, questions.length);
+};
 
 // logic.timer
 var countdownTimer = function() {
     console.log("timer countdown from 10s")
-}
+};
 
 // event listener
 startButtonEl.addEventListener('click', () => {
