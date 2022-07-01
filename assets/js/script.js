@@ -1,11 +1,11 @@
 // redux | js logic
-
-// document elements
+// dom elements
 var startButtonEl = document.querySelector('#start-button');
 
 // logic.quiz
 var startQuiz = function() {
-    var questions = [
+    // questions array
+    var questionsArray = [
         {
             question: "HTML?",
             choices: {
@@ -25,8 +25,22 @@ var startQuiz = function() {
             answer: "b"
         },
        ];
-    console.log(questions, questions.length);
+
+    for(var i = 0; i < questionsArray.length; i++) {
+        console.log(questionsArray[i]);
+        console.log(i);
+        console.log(questionsArray[i] + " is at " + i + " index");
+    }
+    // current question
+    var currentQuestion = questionsArray;
+    // console.log(currentQuestion.length);
 };
+
+
+// for(initial expression; condition; increment expression) {
+//     statement
+//  }
+
 
 // logic.timer
 var countdownTimer = function() {
