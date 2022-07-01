@@ -1,14 +1,23 @@
 // redux | js logic
 
-// BUTTONS
-// start button
+// document elements
 var startButtonEl = document.querySelector('#start-button');
 
+// logic.quiz
 var startQuiz = function() {
-    console.log("start quiz button clicked")
+    console.log("quiz will present a multiple choice question")
 }
 
-startButtonEl.addEventListener('click', startQuiz);
+// logic.timer
+var countdownTimer = function() {
+    console.log("timer countdown from 10s")
+}
+
+// event listener
+startButtonEl.addEventListener('click', () => {
+    startQuiz();
+    countdownTimer();
+});
 
 
 //  TIMER
