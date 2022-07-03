@@ -1,10 +1,10 @@
-/* BASE PALETTE */
+/* base palette */
 :root {
     --primary: rgb(54, 49, 49);
     --secondary: rgb(212, 146, 126);
     --tertiary: rgb(168, 187, 240);
-    --wrong: rgb(124, 18, 18);
     --correct: rgb(24, 136, 138);
+    --wrong: rgb(124, 18, 18);
 }
     
 * {
@@ -14,156 +14,55 @@
     font-family: 'Courier New', Courier, monospace;
     line-height: 1.25;
     color: var(--secondary); 
+    border: 1px red solid;
 }
 
+/* base elements */
 body {
     box-sizing: border-box;
     padding: 25px;
     justify-content: center;
     text-align: center;
-    align-items: center;
     width: 100%;
-    flex-direction: column;
     background-color: var(--primary);
 }
 
-/* HEADER & FOOTER */
-
-header {
-    margin-bottom: 25px;
-    display: flex;
-    justify-content: space-between;
+header, footer {
+    height: 20vh;
 }
 
-footer {
-    text-align: center;
-    padding: 25px;
-    margin-top: 25px;
-}
-
-footer a {
-    color: var(--secondary);
-    text-shadow: 0px 0px 10px var(--secondary);
-    transition-duration: 1s;
-}
-
-footer a:hover {
-    color: var(--tertiary);
-    text-shadow: 0 0 20px var(--tertiary);
-}
-
-/* MAIN */
 main {
+    height: 50vh;
     padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
-h1 {
-    color: var(--tertiary);
-    text-shadow: 0px 0px 20px var(--tertiary);
-    /* font-size: 100%; */
-    font-size: 3vh;
-    padding: 20px;
-    /* margin-bottom: 10px; */
+/* child elements */
+#rules, .answers {
+    list-style: none;
 }
 
-h2 {
-    /* text-align: center; */
-    padding: 10px;
-    margin-bottom: 5px;
-}
-
-
-article {
-    width: auto;
-    padding: 25px;
-    border-radius: 15px;
-}
-
-.text {
-    text-align: left;
-}
-
-/* .answer-btns {
-    display: block;
-    justify-content: left;
-    align-items: center;
-} */
-
-/* TEXT-RELATED */
-a {
-    color: var(--tertiary);
-    text-decoration: none;
-}
-
-.emphasis {
-    color: var(--tertiary);
-    font-weight: bolder;
-    text-shadow: 0px 0px 20px var(--tertiary);
-}
-
-.small-caps {
-    font-variant: small-caps;
-    font-weight: bold;
-    kerning: none;
-    color: var(--tertiary);
-    text-shadow: 0px 0px 20px var(--tertiary);
-}
-
-#rules-title {
-    color: var(--secondary);
-    text-shadow: 0px 0px 20px var(--secondary);
-    font-size: 1.5vw;
-    kerning: auto;
-    border-bottom: 1px solid var(--secondary);
-    width: auto;
-    margin-bottom: 4vh;
-}
-
-/* BUTTON STYLES */
-.btn {
-    margin: 30px;
-    border-radius: 10px;
-    /* width: 175px; */
-    width: auto;
+.button {
+    background-color: var(--tertiary);
+    color: var(--primary);
+    border-radius: 40px;
     border: none;
-    padding: 10px;
-    box-shadow: 5px 5px 10px var(--tertiary);
-    color: var(--tertiary);
-    background-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 40px var(--secondary);
+    padding: 20px;
+    width: 20%;
     transition-duration: 1s;
 }
 
-.btn:hover {
+.button:hover {
+    background-color: var(--primary);
     color: var(--secondary);
-    background-color: var(--tertiary);
-    box-shadow: 5px 5px 30px 5px var(--secondary);
-    font-weight: bolder;
-    text-shadow: 2 -2 2px var(--secondary);
-}
-
-#start-btn {
-    margin-top: 50px;
-}
-
-
-/* JS MAGIC */
-.wrong {
-    background-color: var(--wrong);
-    color: var(--secondary);
-    font-weight: bolder;
-    box-shadow: 5px 5px 30px 5px var(--wrong);
+    box-shadow: 0 0 40px var(--tertiary);
 }
 
 .correct {
-    background-color: var(--correct);
-    color: var(--tertiary);
-    font-weight: bolder;
-    box-shadow: 5px 5px 30px 5px var(--correct);
+    color: var(--correct);
 }
 
-.hide {
-    display: none;
+.wrong {
+    color: var(--wrong);
 }
