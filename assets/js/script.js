@@ -44,7 +44,6 @@ var countdownTimer = function() {
 
     // logic.append <#time-button> to <header>
     footerEl.append(timerEl);
-    console.log(footerEl);
 
     // logic.time reaches 0 triggers endQuiz()
     if (countdown === 0) {
@@ -62,20 +61,26 @@ var startQuiz = function() {
     var quizContainerEl = document.createElement("section");
         quizContainerEl.className = "container";
         quizContainerEl.id = "quiz-container";
-        // quizContainerEl.innerText = "this is the #quiz-container";
-        quizContainerEl.innerHTML = "<article class='question'>this is a question</article><ul class='answers'><li class='answer'>answer 1</li><li class='answer'>answer 2</li>";
-
-    // logic.append <#quiz-container> to <main>
-    mainEl.append(quizContainerEl);
-    console.log(mainEl);
 
     // logic.create <.question>
-    var questionEl = document.createElement("article")
+    var questionEl = document.createElement("h2");
         questionEl.className = "question";
-        questionEl.innerText = "this is where the question will be"
-        // logic.append <.question> to <#quiz-container>
-        // quizContainerEl.append(questionEl)
-        // console.log(quizContainerEl);
+        questionEl.innerText = "this is a question";
+
+    // logic.create <.answers>
+    var answersEl = document.createElement("ul");
+        answersEl.className = "answers";
+    
+    // logic.create <.answer>
+    var answerEl = document.createElement("li");
+        answerEl.className = "answer";
+        answerEl.innerText = "this is an answer";
+
+    // logic.display
+    answersEl.append(answerEl);
+    quizContainerEl.append(questionEl, answersEl);
+    mainEl.append(quizContainerEl);
+    console.log(mainEl);
 
     var currentQuestion = questions;
     // logic.loop through questions[] for an unaswered question:
