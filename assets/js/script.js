@@ -1,9 +1,14 @@
-// dom elements
+// data.dom-elements
 var startButtonEl = document.querySelector('#start-button');
 var saveButtonEl = document.querySelector('#save-button');
 var timeButtonEl = document.querySelector('#time-button');
 var playAgainButtonEl = document.querySelector('#play-again-button');
 
+// data.user-input
+var inititals = "XX";
+console.log(inititals + " are the initials")
+
+// data.program
 // logic.timer
 var countdownTimer = function() {
     // logic.countdown from 10s
@@ -36,6 +41,22 @@ var questions = [
 
 // logic.quiz
 var startQuiz = function() {
+    // logic.hide <start-button>
+    startButtonEl.remove();
+
+    // logic.create quiz container
+    var quizContainerEl = document.createElement("section");
+    quizContainerEl.className = "container";
+    quizContainerEl.setAttribute("id", "quiz-container");
+    quizContainerEl.append("quiz container element")
+
+    // logic.append <#quiz-container> to <main>
+    document.body.append(quizContainerEl);
+
+    console.log(quizContainerEl);
+
+    var questionEl = document.createElement("article")
+
     // logic.change <main><start-quiz/></main> to <main><quiz-inprogress/></main>
 
     var currentQuestion = questions;
