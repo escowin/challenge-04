@@ -1,23 +1,16 @@
 // data.dom-elements
+var mainEl = document.querySelector('main');
+var headerEl = document.querySelector('header');
 var startButtonEl = document.querySelector('#start-button');
 var saveButtonEl = document.querySelector('#save-button');
-var timeButtonEl = document.querySelector('#time-button');
+// var timeButtonEl = document.querySelector('#time-button');
 var playAgainButtonEl = document.querySelector('#play-again-button');
 
 // data.user-input
 var inititals = "XX";
 console.log(inititals + " are the initials")
 
-// data.program
-// logic.timer
-var countdownTimer = function() {
-    // logic.countdown from 10s
-    console.log("timer countdown from 10s")
-    // logic.show the countdown to user
-    // logic.time reaches 0 triggers endQuiz()
-    // logic.if all questions are answered before countdown reaches 0, remaining time goes to saveHighScore()
-};
-
+// data.program-questions
 var questions = [
     {
         question: "HTML?",
@@ -39,21 +32,43 @@ var questions = [
     },
     ];
 
+// logic.timer
+var countdownTimer = function() {
+    // logic.countdown from 10s
+    var countdown = 0;
+
+    // logic.display timer in document
+    var timeButtonEl = document.createElement("button")
+    timeButtonEl.className = "button";
+    timeButtonEl.setAttribute("id", "time-button");
+    timeButtonEl.append(countdown + "s");
+
+    // logic.append <#time-button> to <header>
+    headerEl.append(timeButtonEl);
+    console.log(headerEl);
+
+    // logic.time reaches 0 triggers endQuiz()
+    if (countdown === 0) {
+        endQuiz();
+    }
+    // logic.if all questions are answered before countdown reaches 0, remaining time goes to saveHighScore()
+};
+
 // logic.quiz
 var startQuiz = function() {
     // logic.hide <start-button>
     startButtonEl.remove();
 
-    // logic.create quiz container
+    // logic.create <section .container #quiz-container>
     var quizContainerEl = document.createElement("section");
-    quizContainerEl.className = "container";
-    quizContainerEl.setAttribute("id", "quiz-container");
-    quizContainerEl.append("quiz container element")
+        quizContainerEl.className = "container";
+        quizContainerEl.setAttribute("id", "quiz-container");
+        quizContainerEl.innerText = "this is the #quiz-container using innerText";
 
     // logic.append <#quiz-container> to <main>
-    document.body.append(quizContainerEl);
+    mainEl.append(quizContainerEl);
 
-    console.log(quizContainerEl);
+    console.log(mainEl);
 
     var questionEl = document.createElement("article")
 
@@ -90,7 +105,7 @@ var startQuiz = function() {
         // logic.incorrectly answer, deduct time && go to next question
         // logic.present next question
             // logic.if all questions answered || time reaches 0, triggers endQuiz()
-    endQuiz();
+    // endQuiz();
 };
 
 var endQuiz = function() {
