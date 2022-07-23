@@ -9,32 +9,23 @@ var startButtonEl = document.querySelector('#start-button');
 // data.user-input
 var inititals = "XX";
 
-// data.program-questions
+// data.questions-array
 var questions = [
-    {
-        question: "HTML?",
-        choices: {
-            a: "yay", 
-            b: "nay", 
-            c: "abstain"
-        },
-        answer: "a"
-    },
-    {
-        question: "CSS?",
-        choices: {
-            a: "what", 
-            b: "who", 
-            c: "why"
-        },
-        answer: "b"
-    },
-    ];
+    "html question",
+    "css question",
+    "js question",
+    "t/f question"
+];
 
 // logic.timer
+var countdown = 10
 var countdownTimer = function() {
     // logic.countdown from 10s
-    var countdown = 0;
+    counter--;
+    if(counter === 0) {
+        console.log("game over");
+        clearInterval(startCountdown)
+    }
 
     // logic.display timer in document
     var timerEl = document.createElement("button")
@@ -46,17 +37,29 @@ var countdownTimer = function() {
     footerEl.append(timerEl);
 
     // logic.time reaches 0 triggers endQuiz()
-    if (countdown === 0) {
-        endQuiz();
-    }
+    // if (countdown === 0) {
+    //     endQuiz();
+    // } else {
+    //     console.log(countdown + "s remaining");
+    // }
     // logic.if all questions are answered before countdown reaches 0, remaining time goes to saveHighScore()
 };
+var startCountdown = setInterval(countdown, 1000);
 
-// logic.quiz
-var startQuiz = function() {
-    // logic.remove <#rules-container>
-    rulesContainerEl.remove();
+// logic.get [question]
+var getQuestion = function(question) {
+    console.log(question + " in getQuestion()");
 
+    // if (!correct) {
+    //    var penalty = coundtown - 5;
+    //     getQuestion();
+    // } else {
+    //     getQuestion();
+    // }
+};
+
+// logic.display <.question>
+var displayQuestion = function(question) {
     // logic.create <#quiz-container>
     var quizContainerEl = document.createElement("section");
         quizContainerEl.className = "container";
@@ -65,7 +68,7 @@ var startQuiz = function() {
     // logic.create <.question>
     var questionEl = document.createElement("h2");
         questionEl.className = "question";
-        questionEl.innerText = "this is a question";
+        questionEl.innerText = question;
 
     // logic.create <.answers>
     var answersEl = document.createElement("ul");
@@ -76,35 +79,32 @@ var startQuiz = function() {
         answerEl.className = "answer";
         answerEl.innerText = "this is an answer";
 
-    // logic.display
+    // logic.append <elements>
     answersEl.append(answerEl);
     quizContainerEl.append(questionEl, answersEl);
     mainEl.append(quizContainerEl);
-    console.log(mainEl);
+    console.log(question + " in displayQuestion()");
+};
 
-    var currentQuestion = questions;
-    // logic.loop through questions[] for an unaswered question:
-        for(var i = 0; i < questions.length; i++) {
-        }
-        // logic.select one {question} from [questions] 
-        var getQuestion = 'get question';
-        console.log(getQuestion + ' is working');
-        var displayQuestion = function (){
-            // logic.display selected {question} in DOM <divs>
-                // <main>
-                    // <#quiz>
-                        // <#question>
-                        // <#choices>
-                            // <.choice/>            
-        };
-        var answerQuestion = function(){
-        // logic.user selects <.choice> from <#choices>
-        // triggers nextQuesition()
-                nextQuestion();
 
-        };
-    // >save point<
-    var nextQuestion = "next question is here"
+// logic.quiz
+var startQuiz = function(question) {
+    // logic.remove <#rules-container>
+    rulesContainerEl.remove();
+    displayQuestion();
+
+    // reset dom elements
+    quizContainerEl.innerText();
+
+    var currentQuestion = questions[i];
+
+
+    getQuestion(question);
+    for(var i = 0; i <questions.length);  
+
+    // logic.get [questions], display <#quiz-container>
+
+    // displayQuestion(question);
 
     
     // console.log(currentQuestion.length);
@@ -118,6 +118,8 @@ var startQuiz = function() {
 
 var endQuiz = function() {
     console.log('quiz is over')
+
+
     // score calculations
     var score = function() {
 
@@ -127,23 +129,17 @@ var endQuiz = function() {
     console.log('score is ' + inititals +  ' & remaining time.');
 
     // logic.saving
-    var saveHighScore = function() {
-        // logic.save score
-        console.log('save high score')
-        // logic.saving
-        // logic.saving high score is displayed by user-input.
-            // regex. /2 Initials, A-Z/
-        // logic.score is (initials + " | " + coundtownTimer)
-        // logic.show saved score in an <ol>
-        // logic.play again option
-    };
+
 };
 
 
 
 // event listeners
 startButtonEl.addEventListener('click', () => {
-    startQuiz();
+    // startQuiz();
+    for(var i = 0; i < questions.length; i++) {
+        startQuiz(questions[i]);
+    }
     countdownTimer();
 });
 

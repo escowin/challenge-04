@@ -14,7 +14,7 @@
     font-family: 'Courier New', Courier, monospace;
     line-height: 1.25;
     color: var(--secondary); 
-    border: 1px red solid;
+    /* border: 1px red solid; */
 }
 
 /* base elements */
@@ -48,6 +48,7 @@ main {
     border: none;
     outline: none;
     box-shadow: 0 0 40px var(--secondary);
+    margin: 20px;
     padding: 20px;
     width: 20%;
     transition-duration: 1s;
