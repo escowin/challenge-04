@@ -18,7 +18,7 @@ var questions = [
     "t/f question"
 ];
 
-// logic    |   countdown
+// logic.countdown
 var countdownTimer = function() {
     var timeLeft = 10;
 
@@ -31,9 +31,14 @@ var countdownTimer = function() {
             timeLeft--;
         } else {
             clearInterval(timeInterval);
-            displayScoreBoard();
+            endQuiz();
         }
     }, 1000)
+};
+
+// logic.end-quiz
+var endQuiz = function(){
+    console.log("endQuiz() logic");
 };
 
 startButtonEl.addEventListener("click", countdownTimer);
