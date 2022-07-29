@@ -1,7 +1,6 @@
 // data.dom-elements
-var mainEl = document.querySelector('main');
+var quizContainerEl = document.querySelector('#quiz-container');
 var rulesContainerEl = document.querySelector('#rules-container');
-var footerEl = document.querySelector('footer');
 var startButtonEl = document.querySelector('#start-button');
 var timerEl = document.querySelector('#timer');
 // var saveButtonEl = document.querySelector('#save-button');
@@ -36,13 +35,28 @@ var countdownTimer = function() {
     }, 1000)
 };
 
+// logic.display
 var displayQuestions = function() {
-    var quizContainerEl = document.createElement("section");
-    quizContainerEl.className = "container";
-    quizContainerEl.setAttribute("id", "quiz-container");
-    quizContainerEl.innerText = "quiz container";
+    // to-do: replace innerText placeholder string w/ object key-values
+    var questionsContainerEl = document.createElement("section");
+    questionsContainerEl.className = "container";
+    questionsContainerEl.setAttribute("id", "questions-container");
 
-    mainEl.appendChild(quizContainerEl);
+    var questionEl = document.createElement("h2");
+    questionEl.className = "question";
+    questionEl.setAttribute("id", "question");
+    questionEl.innerText = "this is a question?";
+
+    var answersEl = document.createElement("ul");
+    answersEl.className = "answers";
+
+    var answerEl = document.createElement("li");
+    answerEl.className = "answer";
+    answerEl.innerText = "answer placeholder"
+
+    quizContainerEl.appendChild(questionsContainerEl);
+    questionsContainerEl.append(questionEl, answersEl);
+    answersEl.append(answerEl);
 }
 
 // logic.start-quiz
