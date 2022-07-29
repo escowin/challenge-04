@@ -3,19 +3,15 @@ var quizContainerEl = document.querySelector('#quiz-container');
 var rulesContainerEl = document.querySelector('#rules-container');
 var startButtonEl = document.querySelector('#start-button');
 var timerEl = document.querySelector('#timer');
-// var saveButtonEl = document.querySelector('#save-button');
-// var playAgainButtonEl = document.querySelector('#play-again-button');
 
 // data.user-input
 var inititals = "XX";
 
 // data.questions-array
-var questions = [
-    "html question",
-    "css question",
-    "js question",
-    "t/f question"
-];
+var questions = {
+    question: "html question",
+    answer: "this is the answer"
+};
 
 // logic.countdown
 var countdownTimer = function() {
@@ -45,14 +41,14 @@ var displayQuestions = function() {
     var questionEl = document.createElement("h2");
     questionEl.className = "question";
     questionEl.setAttribute("id", "question");
-    questionEl.innerText = "this is a question?";
+    questionEl.innerText = questions.question;
 
     var answersEl = document.createElement("ul");
     answersEl.className = "answers";
 
     var answerEl = document.createElement("li");
     answerEl.className = "answer";
-    answerEl.innerText = "answer placeholder"
+    answerEl.innerText = questions.answer;
 
     quizContainerEl.appendChild(questionsContainerEl);
     questionsContainerEl.append(questionEl, answersEl);
