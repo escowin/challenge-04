@@ -36,9 +36,25 @@ var countdownTimer = function() {
     }, 1000)
 };
 
+var displayQuestions = function() {
+    var quizContainerEl = document.createElement("section");
+    quizContainerEl.className = "container";
+    quizContainerEl.setAttribute("id", "quiz-container");
+    quizContainerEl.innerText = "quiz container";
+
+    mainEl.appendChild(quizContainerEl);
+}
+
+// logic.start-quiz
+var startQuiz = function() {
+    rulesContainerEl.remove();
+    displayQuestions();
+}
 // logic.end-quiz
-var endQuiz = function(){
+var endQuiz = function() {
     console.log("endQuiz() logic");
 };
 
+// event-listeners
 startButtonEl.addEventListener("click", countdownTimer);
+startButtonEl.addEventListener("click", startQuiz);
