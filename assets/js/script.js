@@ -5,7 +5,24 @@ var startButtonEl = document.querySelector('#start-button');
 var timerEl = document.querySelector('#timer');
 
 var inititals = "XX";
+
+// logic.timer
 var timer = 10;
+
+var countdownTimer = function() {
+    var timeInterval = setInterval(function() {
+        if (timer > 0) {
+            timerEl.textContent = timer + 's';
+            timer--;
+        } else if (timer === 0) {
+            timerEl.textContent = timer;
+            timer--;
+        } else {
+            clearInterval(timeInterval);
+            endQuiz();
+        }
+    }, 1000)
+};
 
 // logic.questions
 var questions = [
@@ -49,35 +66,21 @@ var displayQuestion = function(question) {
     quizContainerEl.appendChild(questionsContainerEl);
     questionsContainerEl.append(questionEl, answersEl);
     answersEl.append(answerEl);
+
+    answerEl.addEventListener("click", nextQuestion);
 };
 
 var setQuestion = function() {
     for (var i = 0; i < questions.length; i++) {
         var currentQuestion = questions[i];
-
+        // **pause here**
+        // currently displays all index arrays
         displayQuestion(currentQuestion);
-
-    //     if (currentQuestion > 0) {
-    //         console.log("next question")
-    //         nextQuestion;
-    //     }
     }
 };
 
-// logic.countdown-timer
-var countdownTimer = function() {
-    var timeInterval = setInterval(function() {
-        if (timer > 0) {
-            timerEl.textContent = timer + 's';
-            timer--;
-        } else if (timer === 0) {
-            timerEl.textContent = timer;
-            timer--;
-        } else {
-            clearInterval(timeInterval);
-            endQuiz();
-        }
-    }, 1000)
+var nextQuestion = function() {
+    console.log("clicked answer button")
 };
 
 // logic.start-quiz
@@ -86,10 +89,6 @@ var startQuiz = function() {
     // getQuestion();
     setQuestion();
     countdownTimer();
-};
-
-var nextQuestion = function() {
-    console.log("clicked an answer")
 };
 
 // logic.end-quiz
