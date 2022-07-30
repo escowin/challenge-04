@@ -10,7 +10,7 @@ var timer = 10;
 // logic.questions
 var questions = [
     {
-        question: "this is question 1",
+        question: "This is an HTML question",
         answers: [
             { text: "answer a", correct: true },
             { text: "answer b", correct: true },
@@ -44,7 +44,7 @@ var displayQuestion = function(question) {
 
     var answerEl = document.createElement("li");
     answerEl.className = "answer";
-    answerEl.innerText = question.answers;
+    answerEl.innerText = question.answers.text;
 
     quizContainerEl.appendChild(questionsContainerEl);
     questionsContainerEl.append(questionEl, answersEl);
@@ -54,8 +54,13 @@ var displayQuestion = function(question) {
 var setQuestion = function() {
     for (var i = 0; i < questions.length; i++) {
         var currentQuestion = questions[i];
-        console.log(currentQuestion.question);
+
         displayQuestion(currentQuestion);
+
+    //     if (currentQuestion > 0) {
+    //         console.log("next question")
+    //         nextQuestion;
+    //     }
     }
 };
 
