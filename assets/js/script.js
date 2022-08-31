@@ -11,29 +11,29 @@ var inititals = "XX";
 var questions = [
     {
         question: "This is an HTML question",
-        choices: [
-            { answer: "answer a", correct: true },
-            { answer: "answer b", correct: true },
-            { answer: "answer c", correct: true },
-            { answer: "answer d", correct: false }
+        answers: [
+            { choice: "answer a", correct: true },
+            { choice: "answer b", correct: false },
+            { choice: "answer c", correct: false },
+            { choice: "answer d", correct: false }
         ]
     },
     {
         question: "this is question 2",
-        choices: [
-            { answer: "answer a", correct: false },
-            { answer: "answer b", correct: true },
-            { answer: "answer c", correct: true },
-            { answer: "answer d", correct: true }
+        answers: [
+            { choice: "answer a", correct: false },
+            { choice: "answer b", correct: true },
+            { choice: "answer c", correct: false },
+            { choice: "answer d", correct: false }
         ]
     },
     {
         question: "this is question 3",
-        choices: [
-            { answer: "answer a", correct: false },
-            { answer: "answer b", correct: true },
-            { answer: "answer c", correct: true },
-            { answer: "answer d", correct: true }
+        answers: [
+            { choice: "answer a", correct: false },
+            { choice: "answer b", correct: false },
+            { choice: "answer c", correct: false },
+            { choice: "answer d", correct: true }
         ]
     },
 ];
@@ -63,61 +63,41 @@ var shuffledQuestions;
 var currentQuestionIndex;
 
 var displayQuestion = function(question) {
-    // <#quiz-container><h2 #question.../><#choices-container><.choice.../></></>
     var currentQuestion = question.question;
 
-    // question container
+    // question container elements
     var questionsContainerEl = document.createElement("section");
-    questionsContainerEl.innerHTML = "";
+    var questionEl = document.createElement("h2");
+    var answerEl = document.createElement("button");
+
+    // format container heirarchy
+    quizContainerEl.appendChild(questionsContainerEl);
+    questionsContainerEl.appendChild(questionEl);
+    questionsContainerEl.appendChild(answerEl);
+
+    console.log(quizContainerEl);
+
+    // question container
     questionsContainerEl.className = "container";
     questionsContainerEl.setAttribute("id", "questions-container");
 
-    // displays current question
-    var questionEl = document.createElement("h2");
+    // question header
     questionEl.className = "question";
     questionEl.setAttribute("id", "question");
     questionEl.innerText = currentQuestion;
 
-    // loop through choices
-    question.answers.forEach(choices => {
-        var choiceEl = document.createElement("button");
-        choiceEl.innerText = choices.answer 
-
-        
+    // loop through answers
+    question.answers.forEach(answer => {
+        answerEl.className = "answer btn";
+        answerEl.innerText = answer.choice;
+        if (answer.correct) {
+            answerEl.dataset.correct = answer.correct;
+        }    
     })
-    console.log(questionEl);
-
-    questionsContainerEl.appendChild(questionEl);
-    quizContainerEl.appendChild(questionsContainerEl);
-
-    // answers container
-    // var answersEl = document.createElement("ul");
-    // answersEl.className = "answers-container";
-
-    // displays answers as text
-    // question.choices.forEach(choices => {
-    //     var answerEl = document.createElement("li");
-    //     answerEl.className = "answer";
-    //     answerEl.innerText = choices.text;
-    
-    //     questionsContainerEl.append(questionEl, answersEl);
-    //     answersEl.append(answerEl);
-    // })
-    //     quizContainerEl.appendChild(questionsContainerEl);
-
-    // answerEl.addEventListener("click", nextQuestion);
 };
 
 var getQuestion = function() {
     displayQuestion(shuffledQuestions[currentQuestionIndex]);
-
-    // loop through questions array
-    // for (var i = 0; i < questions.length; i++) {
-    //     var currentQuestion = questions[i].question;
-    //     var currentChoices = questions[i].question.choices;
-    // }
-
-    // clickedAnswer();
 };
 
 // logic.start-quiz
@@ -128,7 +108,7 @@ var startQuiz = function() {
     console.log(shuffledQuestions);
     currentQuestionIndex = 0;    
     getQuestion();
-    countdownTimer();
+    // countdownTimer();
 };
 
 // logic.end-quiz

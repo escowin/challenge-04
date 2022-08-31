@@ -14,7 +14,7 @@
     font-family: 'Courier New', Courier, monospace;
     line-height: 1.25;
     color: var(--secondary); 
-    /* border: 1px red solid; */
+    border: 1px red solid;
 }
 
 /* base elements */
@@ -37,11 +37,18 @@ main {
 }
 
 /* child elements */
-#rules, .answers-container {
+#rules {
     list-style: none;
 }
 
+#questions-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2%;
+}
+
 .question {
+    grid-column: span 2;
     color: var(--tertiary);
     font-size: 1.75rem;
     text-align: left;
