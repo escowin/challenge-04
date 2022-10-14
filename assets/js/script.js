@@ -11,12 +11,12 @@ const questionEl = document.createElement("div");
 // - questions
 let questions = [
     {
-        question: "This is an HTML question",
+        question: "Which element does not need a corresponding closing tag?",
         answers: [
-            { choice: "answer a", correct: true },
-            { choice: "answer b", correct: false },
-            { choice: "answer c", correct: false },
-            { choice: "answer d", correct: false }
+            { choice: "<link>", correct: true },
+            { choice: "<script>", correct: false },
+            { choice: "<html>", correct: false },
+            { choice: "<a>", correct: false }
         ]
     },
     {
@@ -66,10 +66,35 @@ function countdownTimer (time) {
     }, 1000)
 };
 
-// - display current question
-function displayQuestion (questions) {
-    const question = questions.question;
-    const answers = questions.answers;
+function nextQuestion(question) {
+    console.log(question) 
+}
+
+function selectAnswer (correct) {
+    
+    // // if (correct === true) {
+    //     console.log(correct)
+    // // } else {
+    //     console.log(correct)
+    // }
+};
+
+// - get the current question from questions array
+function getQuestion (questions) {
+
+    // ** pause **
+    // - while the current question index is less than or equal to questions.length
+    // - run the for loop to iterate through the questions
+    // - then increase j by 1 to move onto the next question.
+
+    let j = 0;
+    while (j < questions.length) {
+        // console.log(questions.question)
+        const question = questions[i].question;
+        const answers = questions[i].answers;
+
+    }
+
 
     questionEl.setAttribute("id", "question");
     questionEl.className = "container";
@@ -80,11 +105,21 @@ function displayQuestion (questions) {
     answersEl.className = 'container';
 
     for (let i = 0; i < answers.length; i++) {
+        let correct = answers[i].correct
+
         const answerEl = document.createElement('p');
+        // set data-correct based on choice.correct-true/false
+        answerEl.setAttribute('data-correct', correct);
         answerEl.className = 'answer';
-        answerEl.textContent = answers[i].choice
+        answerEl.textContent = answers[i].choice;
+
         answersEl.appendChild(answerEl);
+        console.log(answerEl);
+
+        answerEl.addEventListener('click', selectAnswer(correct))
     }
+
+    console.log(questions)
 
     questionContainerEl.appendChild(questionEl);
     questionContainerEl.appendChild(answersEl);
@@ -102,8 +137,9 @@ function startQuiz() {
     
     // randomize the question array
     randomize(questions)
-    // display the first question in the randomized array
-    displayQuestion(questions[0])
+    // get the first question in the randomized array
+    getQuestion(questions);
+
 
     // start the countdown timer
     // countdownTimer(10);
