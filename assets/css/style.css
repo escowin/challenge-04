@@ -27,12 +27,11 @@ body {
     background-color: var(--primary);
 }
 
-header, footer {
-    height: 20vh;
+header {
+    min-height: 10vh;
 }
 
 main {
-    height: 50vh;
     padding: 10px;
 }
 
@@ -41,10 +40,9 @@ main {
     list-style: none;
 }
 
-#questions-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2%;
+#question-container {
+    display: flex;
+    flex-direction: column;
 }
 
 .question {
