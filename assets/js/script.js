@@ -40,6 +40,10 @@ let questions = [
   },
 ];
 
+// - score
+const potentialScore = questions.length;
+// const realScore = Math.round(potentialScore/correctAnswers)
+
 // - user-input
 // let initials = '';
 
@@ -51,13 +55,13 @@ function countdownTimer(time) {
 
   const countdown = setInterval(function () {
     if (timer === 10) {
-        timerEl.textContent = `${timer}s`;
-        timer--;
+      timerEl.textContent = `${timer}s`;
+      timer--;
     } else if (timer < 10 && timer >= 0) {
       timerEl.textContent = `0${timer}s`;
       timer--;
     } else {
-        timerEl.textContent = '---'
+      timerEl.textContent = "---";
       clearInterval(countdown);
       // endQuiz();
     }
@@ -89,17 +93,31 @@ function getQuestion(random) {
     let correct = answers[i].correct;
 
     const answerEl = document.createElement("p");
-    answerEl.setAttribute("data-choice", correct);
+    answerEl.setAttribute("data-correct", correct);
     answerEl.className = "answer";
     answerEl.textContent = `${i + 1}. ${answer}`;
 
     answersEl.appendChild(answerEl);
     console.log(answerEl);
 
-    answerEl.onclick = selectAnswer;
+    // selecting an answer
+    answerEl.addEventListener("click", () => {
+        const choice = answerEl.getAttribute("data-correct");
+
+        // screen flashes green; add a point; move on to the next question in the array
+        if (choice === "true") {
+            console.log("correct")
+        } else {
+        // screen flashes red; time deducted; move on to the next question in array
+            console.log("incorrect")
+        }
+    });
   }
 
+  function selectAnswer() {
 
+    console.log("selected answer")
+  }
   // ** pause **
   // - while the current question index is less than or equal to questions.length
   // - run the for loop to iterate through the questions
