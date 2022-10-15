@@ -5,8 +5,8 @@ const rulesContainerEl = document.querySelector("#rules-container");
 const startButtonEl = document.querySelector("#start-button");
 const timerEl = document.querySelector("#timer");
 
-const questionContainerEl = document.createElement("div");
-const questionEl = document.createElement("div");
+const questionContainerEl = document.createElement("section");
+const questionEl = document.createElement("h2");
 let currentQuestionIndex = 0;
 
 // - questions
@@ -40,18 +40,17 @@ let questions = [
   },
 ];
 
-// - score
+let points = 0;
+
 const potentialScore = questions.length;
 // const realScore = Math.round(potentialScore/correctAnswers)
 
 // - user-input
 // let initials = '';
 
-// logic
-// - timer
+// logic.timer
 function countdownTimer(time) {
   let timer = time;
-  console.log(timer);
 
   const countdown = setInterval(function () {
     if (timer === 10) {
@@ -63,7 +62,7 @@ function countdownTimer(time) {
     } else {
       timerEl.textContent = "---";
       clearInterval(countdown);
-      // endQuiz();
+      endQuiz();
     }
   }, 1000);
 }
@@ -98,30 +97,33 @@ function getQuestion(random) {
     answerEl.textContent = `${i + 1}. ${answer}`;
 
     answersEl.appendChild(answerEl);
-    console.log(answerEl);
 
     // selecting an answer
     answerEl.addEventListener("click", () => {
-        const choice = answerEl.getAttribute("data-correct");
+      const choice = answerEl.getAttribute("data-correct");
 
-        // screen flashes green; add a point; move on to the next question in the array
-        if (choice === "true") {
-            console.log("correct")
-        } else {
-        // screen flashes red; time deducted; move on to the next question in array
-            console.log("incorrect")
-        }
+      // button flashes green; add a point
+      if (choice === "true") {
+        answerEl.setAttribute("id", "correct");
+        points++;
+      } else {
+        // button flashes red;
+        answerEl.setAttribute("id", "incorrect");
+      }
+      nextQuestion(random);
     });
   }
+}
 
-  function selectAnswer() {
-
-    console.log("selected answer")
+// logic.next-question | clears out previous html; increases the index number; runs getQuestion again to display the next question in this array.
+function nextQuestion(random) {
+  quizContainerEl.innerHTML = "";
+  currentQuestionIndex++;
+  if (currentQuestionIndex >= questions.length) {
+    endQuiz();
+  } else {
+    getQuestion(random);
   }
-  // ** pause **
-  // - while the current question index is less than or equal to questions.length
-  // - run the for loop to iterate through the questions
-  // - then increase j by 1 to move onto the next question.
 }
 
 // logic.start-quiz
@@ -142,19 +144,32 @@ function startQuiz() {
   countdownTimer(10);
 }
 
-// logic.end-quiz
-var endQuiz = function () {
-  console.log("quiz ends");
-  quizContainerEl.remove();
+// logic.end-quiz | removes question container; allows user to save score
+function endQuiz() {
+  questionContainerEl.remove();
+  timerEl.textContent = "---";
 
-  // enter initials
+  //   undim scoreboardBtn; if user clicks the button, run displayScoreboard
+  const scoreboardBtn = document.getElementById("scoreboard-btn");
 
-  // display scoreboard
-  displayScoreboard();
-};
+  saveScore();
+}
+
+function saveScore(points) {
+  console.log(points);
+}
 
 var displayScoreboard = function () {
+  console.log("save score");
   console.log("display scoreboard");
+  const scoreboardEl = document.createElement("section");
+  scoreboardEl.setAttribute("id", "scoreboard");
+  scoreboardEl.className = "container";
+  scoreboardEl.innerText = points + " points";
+  quizContainerEl.appendChild(scoreboardEl);
+
+  console.log(quizContainerEl);
+
   // populate scoreboard with previous scores pulled from local storage
 };
 

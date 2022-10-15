@@ -14,7 +14,7 @@
     font-family: 'Courier New', Courier, monospace;
     line-height: 1.25;
     color: var(--secondary); 
-    /* border: 1px red solid; */
+    border: 1px red solid;
 }
 
 /* base elements */
@@ -41,7 +41,7 @@ header * {
     letter-spacing: .25rem;
 }
 
-#scoreboard {
+#scoreboard-btn {
     --dim: rgba(0, 0, 0, .09);
     --text: rgba(168, 187, 240, 0.25);
     border-radius: 1rem;
@@ -112,16 +112,18 @@ main {
 }
 
 .button {
-    background-color: var(--tertiary);
-    color: var(--primary);
     border-radius: 40px;
     border: none;
     outline: none;
     box-shadow: 0 0 40px var(--secondary);
+    transition-duration: 1s;
+}
+
+#start-button {
+    background-color: var(--tertiary);
+    color: var(--primary);
     margin: 20px;
     padding: 20px;
-    width: 20%;
-    transition-duration: 1s;
 }
 
 .button:hover {
@@ -130,13 +132,13 @@ main {
     box-shadow: 0 0 40px var(--tertiary);
 }
 
-.correct {
+#correct {
     color: var(--primary);
     background-color: var(--correct);
     box-shadow: 0 0 50px var(--correct);
 }
 
-.wrong {
+#incorrect {
     color: var(--primary);
     background-color: var(--wrong);
     box-shadow: 0 0 50px var(--wrong);
