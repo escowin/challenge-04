@@ -41,12 +41,7 @@ let questions = [
 ];
 
 let points = 0;
-
-const potentialScore = questions.length;
-// const realScore = Math.round(potentialScore/correctAnswers)
-
-// - user-input
-// let initials = '';
+let scoreboard = [];
 
 // logic.timer
 function countdownTimer(time) {
@@ -60,9 +55,9 @@ function countdownTimer(time) {
       timerEl.textContent = `0${timer}s`;
       timer--;
     } else {
-      timerEl.textContent = "---";
-      clearInterval(countdown);
-      endQuiz();
+        timerEl.textContent = "---";
+        clearInterval(countdown);
+        endQuiz(points);
     }
   }, 1000);
 }
@@ -120,7 +115,7 @@ function nextQuestion(random) {
   quizContainerEl.innerHTML = "";
   currentQuestionIndex++;
   if (currentQuestionIndex >= questions.length) {
-    endQuiz();
+    endQuiz(points);
   } else {
     getQuestion(random);
   }
@@ -145,18 +140,30 @@ function startQuiz() {
 }
 
 // logic.end-quiz | removes question container; allows user to save score
-function endQuiz() {
-  questionContainerEl.remove();
-  timerEl.textContent = "---";
+function endQuiz(points) {
+  // issue | endQuiz runs twice (timer & answering all questions). stop countdownTimer if all questions are answered.
+  quizContainerEl.innerHTML = "";
 
   //   undim scoreboardBtn; if user clicks the button, run displayScoreboard
   const scoreboardBtn = document.getElementById("scoreboard-btn");
 
-  saveScore();
+  saveScore(points);
 }
 
-function saveScore(points) {
-  console.log(points);
+function saveScore(score) {
+  console.log(score);
+  // ** paused, working through save-form logic
+  const saveForm = document.createElement("form");
+  saveForm.setAttribute('id', 'save-form')
+  saveForm.className = "container";
+  saveForm.innerHTML = `
+  <p>${score}pts</p>
+  <label for='initials'>Initials</label>
+  <input type='text' name='name' id='initials' required>
+  <button class='button' id='save-button'>save</button>
+  `;
+  quizContainerEl.appendChild(saveForm);
+  console.log(quizContainerEl);
 }
 
 var displayScoreboard = function () {

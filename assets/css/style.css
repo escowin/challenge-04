@@ -41,17 +41,6 @@ header * {
     letter-spacing: .25rem;
 }
 
-#scoreboard-btn {
-    --dim: rgba(0, 0, 0, .09);
-    --text: rgba(168, 187, 240, 0.25);
-    border-radius: 1rem;
-    background-color: var(--dim);
-    box-shadow: 0 0 1vw var(--dim);
-    color: var(--text);
-    text-shadow: 0 0 .75rem var(--text);
-    border: none;
-}
-
 #header {
     font-size: 1.5rem;
     text-shadow: 0 0 .75rem var(--secondary);
@@ -111,12 +100,32 @@ main {
     box-shadow: 0 0 40px var(--tertiary);
 }
 
+/* save form */
+#save-form {
+    display: flex;
+    flex-direction: column;
+    padding: 1vw;
+    min-height: 25vh;
+    justify-content: space-between;
+}
+/* buttons */
 .button {
     border-radius: 40px;
     border: none;
     outline: none;
     box-shadow: 0 0 40px var(--secondary);
     transition-duration: 1s;
+}
+
+#scoreboard-btn {
+    --dim: rgba(0, 0, 0, .09);
+    --text: rgba(168, 187, 240, 0.25);
+    border-radius: 1rem;
+    background-color: var(--dim);
+    box-shadow: 0 0 1vw var(--dim);
+    color: var(--text);
+    text-shadow: 0 0 .75rem var(--text);
+    border: none;
 }
 
 #start-button {
