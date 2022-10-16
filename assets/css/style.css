@@ -153,6 +153,44 @@ main {
     box-shadow: inset 0 0 1vw var(--secondary);
 }
 
+/* scoreboard */
+#scoreboard {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem auto;
+    max-width: max-content;
+}
+
+#scoreboard-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem 0;
+    padding-bottom: .25rem;
+}
+
+#scoreboard h2 {
+    font-variant: small-caps;
+    font-size: 2rem;
+    letter-spacing: .75rem;
+    grid-column: span 2;
+    color: var(--tertiary);
+    text-shadow: 0 0 1vw var(--tertiary);
+}
+
+#scoreboard p {
+    text-shadow: 0 0 1vw var(--tertiary);
+    font-size: 1.5rem;
+}
+
+.saved-score {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.initials {
+    text-align: start;
+}
+
 /* buttons */
 .button {
     border-radius: 40px;

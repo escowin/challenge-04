@@ -42,32 +42,31 @@ let questions = [
 
 let points = 0;
 let scoreboard = [];
-let initials = '';
+let initials = "";
 
 // logic.current year
 function currentYear() {
-  year = new Date().getFullYear()
+  year = new Date().getFullYear();
   const yearEl = document.getElementById("year");
   yearEl.innerText = year;
-};
+}
 
 // logic.timer
 function countdownTimer(time) {
   let timer = time;
-
-  const countdown = setInterval(function () {
-    if (timer === 10) {
-      timerEl.textContent = `${timer}s`;
-      timer--;
-    } else if (timer < 10 && timer >= 0) {
-      timerEl.textContent = `0${timer}s`;
-      timer--;
-    } else {
-        timerEl.textContent = "---";
+    const countdown = setInterval(function () {
+      if (timer === 10) {
+        timerEl.textContent = `${timer}s`;
+        timer--;
+      } else if (timer < 10 && timer > 0) {
+        timerEl.textContent = `0${timer}s`;
+        timer--;
+      } else {
         clearInterval(countdown);
+        timerEl.textContent = "---";
         endQuiz(points);
-    }
-  }, 1000);
+      }
+    }, 1000);
 }
 
 // - get the current question from questions array
@@ -123,6 +122,7 @@ function nextQuestion(random) {
   quizContainerEl.innerHTML = "";
   currentQuestionIndex++;
   if (currentQuestionIndex >= questions.length) {
+    countdownTimer(0);
     endQuiz(points);
   } else {
     getQuestion(random);
@@ -154,48 +154,69 @@ function endQuiz(points) {
 
   //   undim scoreboardBtn; if user clicks the button, run displayScoreboard
   const scoreboardBtn = document.getElementById("scoreboard-btn");
-  scoreboardBtn.className = "button active"
-  console.log(scoreboardBtn)
+  scoreboardBtn.className = "button active";
+  console.log(scoreboardBtn);
   // scoreboardBtn.
-
   saveScore(points);
 }
 
 function saveScore(score) {
-  console.log(score);
-  // ** paused, working through save-form logic
-  const saveForm = document.createElement("form");
-  saveForm.setAttribute('id', 'save-form')
-  saveForm.className = "container";
-  saveForm.innerHTML = `
+  const saveFormEl = document.createElement("form");
+  saveFormEl.setAttribute("id", "save-form");
+  saveFormEl.className = "container";
+  saveFormEl.innerHTML = `
   <h2>Game fin.</h2>
   <div id='initials-container'>
     <label for='initials'>Initials</label>
     <input type='text' name='name' id='initials' required>
     <p>${score}pts</p>
   </div>
-  <button class='button active' id='save-button'>save</button>
+  <button type='submit' class='button active' id='save-button'>save</button>
   `;
-  quizContainerEl.appendChild(saveForm);
+  quizContainerEl.appendChild(saveFormEl);
 
-  const inputEl = document.getElementById("initials");
+  function formSubmitHandler(event) {
+    event.preventDefault();
+    const initialInputEl = document.getElementById("initials");
+    initials = initialInputEl.value.trim();
 
-  console.log(inputEl);
+    scoreboard.push({ initials, score });
+    displayScoreboard();
+  }
+
+  saveFormEl.addEventListener("submit", formSubmitHandler);
 }
 
-var displayScoreboard = function () {
-  console.log("save score");
-  console.log("display scoreboard");
+function displayScoreboard() {
+  quizContainerEl.innerHTML = "";
+
   const scoreboardEl = document.createElement("section");
   scoreboardEl.setAttribute("id", "scoreboard");
   scoreboardEl.className = "container";
-  scoreboardEl.innerText = points + " points";
+
+  const scoreboardHeaderEl = document.createElement("article");
+  scoreboardHeaderEl.setAttribute("id", "scoreboard-header");
+  scoreboardHeaderEl.innerHTML = `<h2>High scores</h2>
+  <p class='initials'>Initials</p>
+  <p>Score</p>`;
+
+  scoreboardEl.appendChild(scoreboardHeaderEl);
+  for (let i = 0; i < scoreboard.length; i++) {
+    const savedScoredEl = document.createElement("div");
+    savedScoredEl.className = "saved-score";
+    savedScoredEl.innerHTML = `
+    <p class='initials'>${scoreboard[i].initials}</p>
+    <p class='score'>${scoreboard[i].score}</p>`;
+
+    scoreboardEl.appendChild(savedScoredEl);
+  }
+
   quizContainerEl.appendChild(scoreboardEl);
 
   console.log(quizContainerEl);
 
   // populate scoreboard with previous scores pulled from local storage
-};
+}
 
 // event-listeners
 currentYear();
