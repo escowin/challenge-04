@@ -42,9 +42,17 @@ let questions = [
 
 let points = 0;
 let scoreboard = [];
+let initials = '';
+
+// logic.current year
+function currentYear() {
+  year = new Date().getFullYear()
+  const yearEl = document.getElementById("year");
+  yearEl.innerText = year;
+};
 
 // logic.timer
-let countdownTimer = (time) => {
+function countdownTimer(time) {
   let timer = time;
 
   const countdown = setInterval(function () {
@@ -160,13 +168,19 @@ function saveScore(score) {
   saveForm.setAttribute('id', 'save-form')
   saveForm.className = "container";
   saveForm.innerHTML = `
-  <p>${score}pts</p>
-  <label for='initials'>Initials</label>
-  <input type='text' name='name' id='initials' required>
-  <button class='button' id='save-button'>save</button>
+  <h2>Game fin.</h2>
+  <div id='initials-container'>
+    <label for='initials'>Initials</label>
+    <input type='text' name='name' id='initials' required>
+    <p>${score}pts</p>
+  </div>
+  <button class='button active' id='save-button'>save</button>
   `;
   quizContainerEl.appendChild(saveForm);
-  console.log(quizContainerEl);
+
+  const inputEl = document.getElementById("initials");
+
+  console.log(inputEl);
 }
 
 var displayScoreboard = function () {
@@ -184,4 +198,5 @@ var displayScoreboard = function () {
 };
 
 // event-listeners
+currentYear();
 startButtonEl.addEventListener("click", startQuiz);
