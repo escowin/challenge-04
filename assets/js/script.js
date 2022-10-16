@@ -44,7 +44,7 @@ let points = 0;
 let scoreboard = [];
 
 // logic.timer
-function countdownTimer(time) {
+let countdownTimer = (time) => {
   let timer = time;
 
   const countdown = setInterval(function () {
@@ -146,6 +146,9 @@ function endQuiz(points) {
 
   //   undim scoreboardBtn; if user clicks the button, run displayScoreboard
   const scoreboardBtn = document.getElementById("scoreboard-btn");
+  scoreboardBtn.className = "button active"
+  console.log(scoreboardBtn)
+  // scoreboardBtn.
 
   saveScore(points);
 }

@@ -108,6 +108,7 @@ main {
     min-height: 25vh;
     justify-content: space-between;
 }
+
 /* buttons */
 .button {
     border-radius: 40px;
@@ -118,19 +119,25 @@ main {
 }
 
 #scoreboard-btn {
+    border-radius: 1rem;
+    padding: .25rem
+}
+
+.inactive {
     --dim: rgba(0, 0, 0, .09);
     --text: rgba(168, 187, 240, 0.25);
-    border-radius: 1rem;
     background-color: var(--dim);
     box-shadow: 0 0 1vw var(--dim);
     color: var(--text);
     text-shadow: 0 0 .75rem var(--text);
-    border: none;
+}
+
+.active {
+    background-color: var(--tertiary);
+    color: var(--primary);
 }
 
 #start-button {
-    background-color: var(--tertiary);
-    color: var(--primary);
     margin: 20px;
     padding: 20px;
 }
