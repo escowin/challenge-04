@@ -40,6 +40,7 @@ let questions = [
   },
 ];
 
+
 let points = 0;
 let scoreboard = [];
 let initials = "";
@@ -52,22 +53,38 @@ function currentYear() {
 }
 
 // logic.timer
-function countdownTimer(time) {
-  let timer = time;
-    const countdown = setInterval(function () {
-      if (timer === 10) {
-        timerEl.textContent = `${timer}s`;
-        timer--;
-      } else if (timer < 10 && timer > 0) {
-        timerEl.textContent = `0${timer}s`;
-        timer--;
-      } else {
-        clearInterval(countdown);
-        timerEl.textContent = "---";
-        endQuiz(points);
-      }
-    }, 1000);
+// let time;
+let time = 11;
+let timer;
+
+function countdown() {
+  time;
+  time--;
+
+  if (time === 10) {
+    timerEl.textContent = `${time}s`
+  } else if (time < 10 && time >= 0) {
+    timerEl.textContent = `0${time}s`
+  } else {
+    endQuiz(points);
+  }
 }
+// function countdownTimer(time) {
+//   let timer = time;
+//     const countdown = setInterval(function () {
+//       if (timer === 10) {
+//         timerEl.textContent = `${timer}s`;
+//         timer--;
+//       } else if (timer < 10 && timer > 0) {
+//         timerEl.textContent = `0${timer}s`;
+//         timer--;
+//       } else {
+//         clearInterval(countdown);
+//         timerEl.textContent = "---";
+//         endQuiz(points);
+//       }
+//     }, 1000);
+// }
 
 // - get the current question from questions array
 function getQuestion(random) {
@@ -106,11 +123,11 @@ function getQuestion(random) {
 
       // button flashes green; add a point
       if (choice === "true") {
-        answerEl.setAttribute("id", "correct");
+        quizContainerEl.setAttribute("id", "correct");
         points++;
       } else {
         // button flashes red;
-        answerEl.setAttribute("id", "incorrect");
+        quizContainerEl.setAttribute("id", "incorrect");
       }
       nextQuestion(random);
     });
@@ -122,8 +139,7 @@ function nextQuestion(random) {
   quizContainerEl.innerHTML = "";
   currentQuestionIndex++;
   if (currentQuestionIndex >= questions.length) {
-    countdownTimer(0);
-    endQuiz(points);
+    endQuiz();
   } else {
     getQuestion(random);
   }
@@ -144,12 +160,15 @@ function startQuiz() {
   getQuestion(random);
 
   // start the countdown timer
-  countdownTimer(10);
+  // countdownTimer(time);
+  timer = setInterval(countdown, 1000);
 }
 
 // logic.end-quiz | removes question container; allows user to save score
 function endQuiz(points) {
   // issue | endQuiz runs twice (timer & answering all questions). stop countdownTimer if all questions are answered.
+  clearInterval(timer);
+  timerEl.textContent = "---";
   quizContainerEl.innerHTML = "";
 
   //   undim scoreboardBtn; if user clicks the button, run displayScoreboard
@@ -157,10 +176,11 @@ function endQuiz(points) {
   scoreboardBtn.className = "button active";
   console.log(scoreboardBtn);
   // scoreboardBtn.
-  saveScore(points);
+  saveScore();
 }
 
-function saveScore(score) {
+function saveScore() {
+  console.log(points)
   const saveFormEl = document.createElement("form");
   saveFormEl.setAttribute("id", "save-form");
   saveFormEl.className = "container";
@@ -169,22 +189,29 @@ function saveScore(score) {
   <div id='initials-container'>
     <label for='initials'>Initials</label>
     <input type='text' name='name' id='initials' required>
-    <p>${score}pts</p>
+    <p>${points}pts</p>
   </div>
   <button type='submit' class='button active' id='save-button'>save</button>
   `;
   quizContainerEl.appendChild(saveFormEl);
 
-  function formSubmitHandler(event) {
-    event.preventDefault();
-    const initialInputEl = document.getElementById("initials");
-    initials = initialInputEl.value.trim();
-
-    scoreboard.push({ initials, score });
-    displayScoreboard();
-  }
-
   saveFormEl.addEventListener("submit", formSubmitHandler);
+}
+
+function formSubmitHandler(event) {
+  event.preventDefault();
+  const initialInputEl = document.getElementById("initials");
+  console.log(initialInputEl.value)
+  let score = points;
+  initials = initialInputEl.value.trim();
+
+  // if (initials !== '' {
+  //   const highscores = JSON.parse(localStorage.getItem("score")) || [];
+  // })
+
+  scoreboard.push({ initials, score });
+  // localStorage.setItem('initials', initials);
+  displayScoreboard();
 }
 
 function displayScoreboard() {
@@ -209,6 +236,7 @@ function displayScoreboard() {
     <p class='score'>${scoreboard[i].score}</p>`;
 
     scoreboardEl.appendChild(savedScoredEl);
+    console.log(i)
   }
 
   quizContainerEl.appendChild(scoreboardEl);
