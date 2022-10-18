@@ -7,17 +7,18 @@
     --wrong: rgb(124, 18, 18);
     --clear: rgba(239, 239, 239, 0.9);
 }
-    
+
 * {
     margin: 0;
     padding: 0;
-    font-size: 100%;
     font-family: 'Courier New', Courier, monospace;
     line-height: 1.25;
     box-sizing: border-box;
 }
 
+
 a {
+    color: inherit;
     text-decoration: none;
     text-shadow: 0 0 1vw var(--secondary);
     transition: 1s;
@@ -28,7 +29,6 @@ a:hover {
     text-shadow: 0 0 1vw var(--tertiary);
 }
 
-/* base elements */
 body {
     display: flex;
     flex-direction: column;
@@ -38,7 +38,7 @@ body {
     width: 100%;
     background-color: var(--primary);
     min-height: 100vh;
-    color: var(--secondary); 
+    color: var(--secondary);
 }
 
 footer {
@@ -54,6 +54,7 @@ header {
         "scorebtn . timer"
         "header header header";
     align-items: center;
+    row-gap: 1rem;
 }
 
 header * {
@@ -72,11 +73,13 @@ header * {
     color: var(--tertiary);
     text-shadow: 0 0 .5rem var(--tertiary);
     grid-area: timer;
+    font-family: Silkscreen;
 }
 
 main {
-    padding: 1rem 0;
+    margin: 2rem 0 0 0;
     transition: 1s;
+    padding-top: .5rem;
 }
 
 .container {
@@ -86,12 +89,12 @@ main {
 
 .correct {
     background-color: var(--correct);
-    box-shadow: 0 0 50px var(--correct);
+    box-shadow: 0 0 .75rem .75rem var(--correct);
 }
 
 .incorrect {
     background-color: var(--wrong);
-    box-shadow: 0 0 50px var(--wrong);
+    box-shadow: 0 0 .75rem .75rem var(--wrong);
 }
 
 #rules-container {
@@ -99,6 +102,13 @@ main {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    text-shadow: 0 0 1vw var(--secondary);
+}
+
+.subheader {
+    font-variant: small-caps;
+    letter-spacing: .5rem;
+    font-size: 1.25rem;
 }
 
 #rules {
@@ -108,6 +118,7 @@ main {
 
 #rules li {
     margin-left: 2rem;
+    margin-bottom: .5rem;
 }
 
 #question-container {
@@ -115,23 +126,21 @@ main {
     flex-direction: column;
 }
 
-.question {
-    grid-column: span 2;
-    color: var(--tertiary);
-    font-size: 1.75rem;
+#question {
+    font-size: 1.25rem;
     text-align: left;
-    padding-left: 50px;
-    font-variant: small-caps;
+    text-shadow: 0 0 .25rem var(--secondary);
     font-weight: lighter;
 }
 
 .answer {
-    margin: 50px 10px;
-    padding: 10px;
+    margin: 2rem .15rem;
+    padding: 1rem 1.25rem;
     text-align: left;
     border-radius: 2rem;
     background-color: var(--primary);
-    box-shadow: 0 0 10px var(--secondary);
+    box-shadow: inset 0 0 .75rem var(--secondary), 0 0 .75rem var(--secondary);
+    text-shadow: 0 0 .25rem var(--secondary);
     cursor: pointer;
     transition-duration: 2s;
 }
@@ -151,10 +160,16 @@ main {
     justify-content: space-between;
 }
 
+#save-form .subheader {
+    color: var(--tertiary);
+    text-shadow: 0 0 .25rem var(--tertiary);
+}
+
 #initials-container {
     display: grid;
     grid-template-columns: 35% 30% 35%;
     align-items: center;
+    margin: 2rem 0;
 }
 
 #initials-input {
@@ -164,7 +179,7 @@ main {
     padding: .25rem 0 .2rem 1.5rem;
     border-radius: .25rem;
     background-color: var(--initials);
-    box-shadow: inset transparent, 0 0 1vw var(--initials);
+    box-shadow: inset 0 0 1rem var(--primary), 0 0 1vw var(--initials);
     border: none;
     outline: none;
     transition: 1s;
@@ -172,8 +187,8 @@ main {
     font-family: 'Silkscreen', cursive;
 }
 
-#initials:focus {
-    box-shadow: inset 0 0 1vw var(--secondary);
+#initials-input:focus {
+    box-shadow: inset 0 0 1rem var(--secondary), 0 0 1vw var(--secondary);
     text-shadow: 0 0 1rem var(--clear);
 }
 
@@ -181,6 +196,13 @@ main {
     padding-left: 1rem;
     text-align: left;
 }
+
+#save-button {
+    font-family: Silkscreen;
+    padding: .5rem 4rem;
+    margin: 2rem auto;
+}
+
 /* scoreboard */
 #scoreboard {
     display: flex;
@@ -205,7 +227,7 @@ main {
 }
 
 #scoreboard p {
-    text-shadow: 0 0 1vw var(--tertiary);
+    text-shadow: 0 0 .5rem var(--secondary);
     font-size: 1.5rem;
 }
 
@@ -214,9 +236,21 @@ main {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-#initials {
+.rank {
+    text-align: start;
+}
+
+.initials {
     padding-left: 1rem;
     letter-spacing: 1rem;
+}
+
+.score {
+    text-align: end;
+}
+
+.saved-score * {
+    font-family: Silkscreen;
 }
 
 label {
@@ -229,7 +263,7 @@ label {
     border-radius: 40px;
     border: none;
     outline: none;
-    box-shadow: 0 0 40px var(--secondary);
+    box-shadow: 0 0 2rem var(--secondary);
     transition-duration: 1s;
     background-color: var(--clear);
 }
@@ -239,15 +273,23 @@ label {
     padding: .25rem;
     grid-area: scorebtn;
     border: none;
+    font-family: Silkscreen;
+    background-color: transparent;
+    transition: 1s;
 }
 
-.inactive {
+.btn-inactive {
     --dim: rgba(0, 0, 0, .09);
     --text: rgba(168, 187, 240, 0.25);
     background-color: transparent;
     box-shadow: 0 0 1vw transparent;
     color: var(--text);
     text-shadow: 0 0 .75rem var(--text);
+}
+
+.btn-active {
+    color: var(--secondary);
+    text-shadow: 0 0 .25rem var(--secondary);
 }
 
 .active {
@@ -260,13 +302,64 @@ label {
 }
 
 #start-button {
-    margin: 20px;
-    padding: 20px;
+    margin: 1rem;
+    padding: 1rem;
+    font-family: Silkscreen;
+    text-shadow: 0 0 .25rem var(--secondary);
 }
 
 .button:hover {
     background-color: var(--primary);
     color: var(--secondary);
-    box-shadow: 0 0 40px var(--tertiary);
+    box-shadow: 0 0 2rem var(--tertiary);
 }
 
+@media screen and (min-width: 768px) {
+
+    #scoreboard-btn,
+    #timer {
+        font-size: 1.25rem;
+    }
+
+    #header,
+    #scoreboard-header h2,
+    .subheader {
+        font-size: 2rem;
+    }
+
+    #scoreboard-header p,
+    #initials-container * {
+        font-size: 1.75rem;
+    }
+
+    #scoreboard {
+        max-width: 75vw;
+    }
+
+    #initials-container {
+        grid-template-columns: 42.5% 15% 42.5%;
+    }
+
+    #initials-input {
+        text-shadow: 0 0 .25rem .25rem var(--clear);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    header {
+        row-gap: 4rem;
+    }
+
+    .subheader,
+    #question {
+        font-size: 1.75rem;
+    }
+
+    #rules,
+    #start-button,
+    #answers,
+    #initials-container *,
+    #save-button {
+        font-size: 1.5rem;
+    }
+}

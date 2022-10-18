@@ -120,8 +120,8 @@ function getQuestion(random) {
   answersEl.setAttribute("id", "answers");
   answersEl.className = "container";
 
-  quizContainerEl.appendChild(questionEl);
-  quizContainerEl.appendChild(answersEl);
+  questionContainerEl.appendChild(questionEl);
+  questionContainerEl.appendChild(answersEl);
 
   // iterate through answers index; display each index
   for (let i = 0; i < answers.length; i++) {
@@ -154,7 +154,7 @@ function getQuestion(random) {
 
 // logic.next-question | clears out previous html; increases the index number; runs getQuestion again to display the next question in this array.
 function nextQuestion(random) {
-  quizContainerEl.innerHTML = "";
+  questionContainerEl.innerHTML = "";
   currentQuestionIndex++;
   if (currentQuestionIndex >= questions.length) {
     endQuiz();
@@ -192,7 +192,7 @@ function endQuiz() {
 
   //   undim scoreboardBtn; if user clicks the button, run displayScoreboard
   const scoreboardBtn = document.getElementById("scoreboard-btn");
-  scoreboardBtn.className = "button active";
+  scoreboardBtn.className = "btn-active";
   // scoreboardBtn.
   saveScore();
 }
@@ -202,7 +202,7 @@ function saveScore() {
   saveFormEl.setAttribute("id", "save-form");
   saveFormEl.className = "container";
   saveFormEl.innerHTML = `
-  <h2>Game fin.</h2>
+  <h2 class='subheader'>Game fin.</h2>
   <div id='initials-container'>
     <label for='initials'>Initials</label>
     <input type='text' name='name' id='initials-input' required placeholder="AA">
@@ -242,9 +242,9 @@ function displayScoreboard() {
   const scoreboardHeaderEl = document.createElement("article");
   scoreboardHeaderEl.setAttribute("id", "scoreboard-header");
   scoreboardHeaderEl.innerHTML = `<h2>High scores</h2>
-  <p>Rank
-  <p class='initials'>Initials</p>
-  <p>Score</p>`;
+  <p class='rank'>Rank
+  <p>Initials</p>
+  <p class='score'>Score</p>`;
 
   scoreboardEl.appendChild(scoreboardHeaderEl);
   for (let i = 0; i < scoreboard.length; i++) {
@@ -254,14 +254,14 @@ function displayScoreboard() {
     savedScoredEl.className = "saved-score";
     if (rank < 10) {
       savedScoredEl.innerHTML = `
-      <p class='rank'>0${rank}</p>
-      <p id='initials'>${scoreboard[i].initials}</p>
-      <p class='score'>${scoreboard[i].score}</p>`;
+      <p class='rank'>0${rank}.</p>
+      <p class='initials'>${scoreboard[i].initials}</p>
+      <p class='score'>${scoreboard[i].score} pts</p>`;
     } else {
       savedScoredEl.innerHTML = `
       <p class='rank'>${rank}</p>
-      <p id='initials'>${scoreboard[i].initials}</p>
-      <p class='score'>${scoreboard[i].score}</p>`;
+      <p class='initials'>${scoreboard[i].initials}</p>
+      <p class='score'>${scoreboard[i].score} pts</p>`;
     }
 
     scoreboardEl.appendChild(savedScoredEl);
