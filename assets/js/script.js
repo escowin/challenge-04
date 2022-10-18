@@ -21,7 +21,8 @@ let questions = [
     ],
   },
   {
-    question: "How does one remove leading & trailing white space from a specific element?",
+    question:
+      "How does one remove leading & trailing white space from a specific element?",
     answers: [
       { choice: "Element.value.remove()", correct: false },
       { choice: "Element.value.trim()", correct: true },
@@ -60,7 +61,11 @@ let questions = [
     question: "'They know not what they do' refers to:",
     answers: [
       { choice: "copy & pasting answers from stackOverflow", correct: false },
-      { choice: "haphharzardly alternating between single and double quotes within javascript code", correct: true },
+      {
+        choice:
+          "haphharzardly alternating between single and double quotes within javascript code",
+        correct: true,
+      },
       { choice: "writing <divs> all the way down", correct: true },
     ],
   },
@@ -70,10 +75,8 @@ let questions = [
       { choice: "true", correct: true },
       { choice: "false", correct: false },
     ],
-  }
-
+  },
 ];
-
 
 let points = 0;
 let scoreboard = [];
@@ -84,6 +87,11 @@ function currentYear() {
   year = new Date().getFullYear();
   const yearEl = document.getElementById("year");
   yearEl.innerText = year;
+
+  console.log(`
+  \u00a9 ${year} Edwin M. Escobar
+  https://github.com/escowin/coding-quiz
+  `);
 }
 
 // logic.timer
@@ -96,9 +104,9 @@ function countdown() {
   time--;
 
   if (time >= 10) {
-    timerEl.textContent = `${time}s`
+    timerEl.textContent = `${time}s`;
   } else if (time < 10 && time >= 0) {
-    timerEl.textContent = `0${time}s`
+    timerEl.textContent = `0${time}s`;
   } else {
     endQuiz(points);
   }
@@ -193,7 +201,6 @@ function endQuiz() {
   //   undim scoreboardBtn; if user clicks the button, run displayScoreboard
   const scoreboardBtn = document.getElementById("scoreboard-btn");
   scoreboardBtn.className = "btn-active";
-  // scoreboardBtn.
   saveScore();
 }
 
@@ -218,7 +225,7 @@ function saveScore() {
 function formSubmitHandler(event) {
   event.preventDefault();
   const initialsInputEl = document.getElementById("initials-input");
-  console.log(initialsInputEl.value)
+  console.log(initialsInputEl.value);
   let score = points;
   initials = initialsInputEl.value.trim();
 
@@ -235,7 +242,7 @@ function displayScoreboard() {
   quizContainerEl.innerHTML = "";
 
   const scoreboardEl = document.createElement("section");
-  
+
   scoreboardEl.setAttribute("id", "scoreboard");
   scoreboardEl.className = "container";
 
@@ -266,7 +273,6 @@ function displayScoreboard() {
 
     scoreboardEl.appendChild(savedScoredEl);
   }
-
 
   quizContainerEl.appendChild(scoreboardEl);
 
