@@ -1,21 +1,21 @@
-# Challenge-04
-Web APIs Challenge: Code Quiz
+# coding-quiz
+Live URL https://escowin.github.io/coding-quiz/
+
+Repo https://github.com/escowin/coding-quiz
 
 ## Description
-* Quiz is composed of four in d e p t h questions. User has 60 seconds to answer all four questions (wrong answers will  penalize the user by sever time deductions). Initials & score may be saved at the end of the quiz.
+Quiz is composed of the most in-depth questions known to web development.
 
 * HTML: minimalist approach.
 
 * CSS: dark-mode aesthetic.
 
-* JS: the heavy lifting code. tapping into the DOM, local storage, and dynamically generating html elements for the index.
-
-## URL
-LIVE: https://escowin.github.io/challenge-04/
-REPO: https://github.com/escowin/challenge-04
+* JS: the heavy lifting code. tapping into the DOM,  dynamically generating html elements for the index.
 
 ## Screenshot
-<img src="./assets/images/screenshot" width="450">
+![desktop screenshot](./assets/images/screenshot-desktop.jpg)
+![tablet screenshot](./assets/images/screenshot-tablet.jpg)
+![mobile screenshot](./assets/images/screenshot-mobile.jpg)
 
-## Contributor
+## Author
 <a href="https://github.com/escowin" target="_blank">Edwin Escobar</a>
