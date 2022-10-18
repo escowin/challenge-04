@@ -21,23 +21,58 @@ let questions = [
     ],
   },
   {
-    question: "this is question 2",
+    question: "How does one remove leading & trailing white space from a specific element?",
     answers: [
-      { choice: "answer a", correct: false },
-      { choice: "answer b", correct: true },
-      { choice: "answer c", correct: false },
-      { choice: "answer d", correct: false },
+      { choice: "Element.value.remove()", correct: false },
+      { choice: "Element.value.trim()", correct: true },
+      { choice: "Element.string.push()", correct: false },
+      { choice: "Element.text.remove()", correct: false },
     ],
   },
   {
-    question: "this is question 3",
+    question: "Cage battle: Python v Java v PHP v Javascript. Who wins?",
     answers: [
-      { choice: "answer a", correct: false },
-      { choice: "answer b", correct: false },
-      { choice: "answer c", correct: false },
-      { choice: "answer d", correct: true },
+      { choice: "Python", correct: false },
+      { choice: "Java", correct: false },
+      { choice: "PHP", correct: false },
+      { choice: "Javascript", correct: true },
     ],
   },
+  {
+    question: "Success is defined by:",
+    answers: [
+      { choice: "function foo() {};", correct: false },
+      { choice: "var foo = function () {};", correct: false },
+      { choice: "const foo = () => {};", correct: true },
+      { choice: "let food = () => {};", correct: true },
+    ],
+  },
+  {
+    question: "The key to a good template literal is to return with..",
+    answers: [
+      { choice: "single quotes ''", correct: false },
+      { choice: 'double quotes "" ', correct: false },
+      { choice: "back-ticks ``", correct: true },
+      { choice: "backslashes \u005c\u005c", correct: false },
+    ],
+  },
+  {
+    question: "Success is defined by:",
+    answers: [
+      { choice: "function foo() {};", correct: false },
+      { choice: "var foo = function () {};", correct: false },
+      { choice: "const foo = () => {};", correct: true },
+      { choice: "let food = () => {};", correct: true },
+    ],
+  },
+  {
+    question: "Booleans are either true or false",
+    answers: [
+      { choice: "true", correct: true },
+      { choice: "false", correct: false },
+    ],
+  }
+  
 ];
 
 
@@ -54,14 +89,14 @@ function currentYear() {
 
 // logic.timer
 // let time;
-let time = 11;
+let time = questions.length * 10;
 let timer;
 
 function countdown() {
   time;
   time--;
 
-  if (time === 10) {
+  if (time >= 10) {
     timerEl.textContent = `${time}s`
   } else if (time < 10 && time >= 0) {
     timerEl.textContent = `0${time}s`
@@ -69,22 +104,6 @@ function countdown() {
     endQuiz(points);
   }
 }
-// function countdownTimer(time) {
-//   let timer = time;
-//     const countdown = setInterval(function () {
-//       if (timer === 10) {
-//         timerEl.textContent = `${timer}s`;
-//         timer--;
-//       } else if (timer < 10 && timer > 0) {
-//         timerEl.textContent = `0${timer}s`;
-//         timer--;
-//       } else {
-//         clearInterval(countdown);
-//         timerEl.textContent = "---";
-//         endQuiz(points);
-//       }
-//     }, 1000);
-// }
 
 // - get the current question from questions array
 function getQuestion(random) {
@@ -123,11 +142,11 @@ function getQuestion(random) {
 
       // button flashes green; add a point
       if (choice === "true") {
-        quizContainerEl.setAttribute("id", "correct");
+        quizContainerEl.className = "container correct";
         points++;
       } else {
         // button flashes red;
-        quizContainerEl.setAttribute("id", "incorrect");
+        quizContainerEl.className = "container incorrect";
       }
       nextQuestion(random);
     });
@@ -165,22 +184,21 @@ function startQuiz() {
 }
 
 // logic.end-quiz | removes question container; allows user to save score
-function endQuiz(points) {
-  // issue | endQuiz runs twice (timer & answering all questions). stop countdownTimer if all questions are answered.
+function endQuiz() {
   clearInterval(timer);
   timerEl.textContent = "---";
+  timerEl.className = "clear";
+  quizContainerEl.className = "container";
   quizContainerEl.innerHTML = "";
 
   //   undim scoreboardBtn; if user clicks the button, run displayScoreboard
   const scoreboardBtn = document.getElementById("scoreboard-btn");
   scoreboardBtn.className = "button active";
-  console.log(scoreboardBtn);
   // scoreboardBtn.
   saveScore();
 }
 
 function saveScore() {
-  console.log(points)
   const saveFormEl = document.createElement("form");
   saveFormEl.setAttribute("id", "save-form");
   saveFormEl.className = "container";
@@ -188,8 +206,8 @@ function saveScore() {
   <h2>Game fin.</h2>
   <div id='initials-container'>
     <label for='initials'>Initials</label>
-    <input type='text' name='name' id='initials' required>
-    <p>${points}pts</p>
+    <input type='text' name='name' id='initials-input' required placeholder="AA">
+    <p id='points'>${points}pts</p>
   </div>
   <button type='submit' class='button active' id='save-button'>save</button>
   `;
@@ -200,10 +218,10 @@ function saveScore() {
 
 function formSubmitHandler(event) {
   event.preventDefault();
-  const initialInputEl = document.getElementById("initials");
-  console.log(initialInputEl.value)
+  const initialsInputEl = document.getElementById("initials-input");
+  console.log(initialsInputEl.value)
   let score = points;
-  initials = initialInputEl.value.trim();
+  initials = initialsInputEl.value.trim();
 
   // if (initials !== '' {
   //   const highscores = JSON.parse(localStorage.getItem("score")) || [];
@@ -218,30 +236,44 @@ function displayScoreboard() {
   quizContainerEl.innerHTML = "";
 
   const scoreboardEl = document.createElement("section");
+  
   scoreboardEl.setAttribute("id", "scoreboard");
   scoreboardEl.className = "container";
 
   const scoreboardHeaderEl = document.createElement("article");
   scoreboardHeaderEl.setAttribute("id", "scoreboard-header");
   scoreboardHeaderEl.innerHTML = `<h2>High scores</h2>
+  <p>Rank
   <p class='initials'>Initials</p>
   <p>Score</p>`;
 
   scoreboardEl.appendChild(scoreboardHeaderEl);
   for (let i = 0; i < scoreboard.length; i++) {
+    let rank = i + 1;
+
     const savedScoredEl = document.createElement("div");
     savedScoredEl.className = "saved-score";
-    savedScoredEl.innerHTML = `
-    <p class='initials'>${scoreboard[i].initials}</p>
-    <p class='score'>${scoreboard[i].score}</p>`;
+    if (rank < 10) {
+      savedScoredEl.innerHTML = `
+      <p class='rank'>0${rank}</p>
+      <p id='initials'>${scoreboard[i].initials}</p>
+      <p class='score'>${scoreboard[i].score}</p>`;
+    } else {
+      savedScoredEl.innerHTML = `
+      <p class='rank'>${rank}</p>
+      <p id='initials'>${scoreboard[i].initials}</p>
+      <p class='score'>${scoreboard[i].score}</p>`;
+    }
 
     scoreboardEl.appendChild(savedScoredEl);
-    console.log(i)
   }
+
 
   quizContainerEl.appendChild(scoreboardEl);
 
-  console.log(quizContainerEl);
+  // issue | start button needs to re-randomize the questions array so that a new game can run.
+  // startButtonEl.textContent = "play again?";
+  // quizContainerEl.appendChild(startButtonEl);
 
   // populate scoreboard with previous scores pulled from local storage
 }
