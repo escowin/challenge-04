@@ -14,7 +14,6 @@
     font-size: 100%;
     font-family: 'Courier New', Courier, monospace;
     line-height: 1.25;
-    /* border: 1px red solid; */
     box-sizing: border-box;
 }
 
@@ -78,7 +77,6 @@ header * {
 main {
     padding: 1rem 0;
     transition: 1s;
-    /* margin-bottom: auto; */
 }
 
 .container {
@@ -154,7 +152,6 @@ main {
 }
 
 #initials-container {
-    /* display: flex; */
     display: grid;
     grid-template-columns: 35% 30% 35%;
     align-items: center;
@@ -172,9 +169,7 @@ main {
     outline: none;
     transition: 1s;
     letter-spacing: .75rem;
-    /* text-decoration: underline; */
     font-family: 'Silkscreen', cursive;
-    /* text-align: center; */
 }
 
 #initials:focus {
@@ -220,7 +215,6 @@ main {
 }
 
 #initials {
-    /* text-align: center; */
     padding-left: 1rem;
     letter-spacing: 1rem;
 }
