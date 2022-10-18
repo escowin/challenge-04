@@ -108,6 +108,10 @@ main {
     margin: 1rem 0;
 }
 
+#rules li {
+    margin-left: 2rem;
+}
+
 #question-container {
     display: flex;
     flex-direction: column;
@@ -246,8 +250,8 @@ label {
 .inactive {
     --dim: rgba(0, 0, 0, .09);
     --text: rgba(168, 187, 240, 0.25);
-    background-color: var(--dim);
-    box-shadow: 0 0 1vw var(--dim);
+    background-color: transparent;
+    box-shadow: 0 0 1vw transparent;
     color: var(--text);
     text-shadow: 0 0 .75rem var(--text);
 }

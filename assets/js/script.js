@@ -57,12 +57,11 @@ let questions = [
     ],
   },
   {
-    question: "Success is defined by:",
+    question: "'They know not what they do' refers to:",
     answers: [
-      { choice: "function foo() {};", correct: false },
-      { choice: "var foo = function () {};", correct: false },
-      { choice: "const foo = () => {};", correct: true },
-      { choice: "let food = () => {};", correct: true },
+      { choice: "copy & pasting answers from stackOverflow", correct: false },
+      { choice: "haphharzardly alternating between single and double quotes within javascript code", correct: true },
+      { choice: "writing <divs> all the way down", correct: true },
     ],
   },
   {
@@ -72,7 +71,7 @@ let questions = [
       { choice: "false", correct: false },
     ],
   }
-  
+
 ];
 
 
