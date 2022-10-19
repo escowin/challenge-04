@@ -174,7 +174,7 @@ function nextQuestion(random) {
 // logic.start-quiz
 function startQuiz() {
   // remove #rules-container from dom
-  rulesContainerEl.remove();
+  quizContainerEl.innerHTML = '';
 
   // create & post #question-container in its place
   questionContainerEl.setAttribute("id", "question-container");
@@ -276,9 +276,16 @@ function displayScoreboard() {
 
   quizContainerEl.appendChild(scoreboardEl);
 
-  // issue | start button needs to re-randomize the questions array so that a new game can run.
-  // startButtonEl.textContent = "play again?";
-  // quizContainerEl.appendChild(startButtonEl);
+  // replay | reset the index & display functional replay button
+  currentQuestionIndex = 0;
+
+  const replayButtonEl = document.createElement("button");
+  replayButtonEl.setAttribute("id", "replay-button");
+  replayButtonEl.className = "button active";
+  replayButtonEl.textContent = "play again?"
+  replayButtonEl.addEventListener('click', startQuiz);
+
+  quizContainerEl.appendChild(replayButtonEl);
 
   // populate scoreboard with previous scores pulled from local storage
 }

@@ -305,7 +305,7 @@ label {
     text-shadow: 0 0 1vw var(--clear);
 }
 
-#start-button {
+#start-button, #replay-button {
     margin: 1rem;
     padding: 1rem;
     font-family: Silkscreen;
@@ -340,7 +340,7 @@ label {
         font-size: 1.5rem;
     }
 
-    #start-button, #save-button {
+    #start-button, #replay-button, #save-button {
         font-size: 1.25rem;
     }
 
@@ -369,6 +369,7 @@ label {
 
     #rules,
     #start-button,
+    #replay-button
     #answers,
     #initials-container *,
     #save-button {
