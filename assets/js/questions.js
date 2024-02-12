@@ -1,5 +1,19 @@
+class Quiz {
+  // properties
+  constructor() {
+    // stuff
+  }
+  // methods
+  startQuiz() {}
+  countdownTimer() {}
+  getQuestion() {}
+  nextQuestion() {}
+  endQuiz() {}
+  saveScore() {}
+}
+
 // - questions
-let questions = [
+const questions = [
     {
       question: "Which element does not need a corresponding closing tag?",
       answers: [

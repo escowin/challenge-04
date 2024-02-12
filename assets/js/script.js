@@ -48,15 +48,7 @@ function startQuiz() {
 function countdownTimer() {
   time;
   time--;
-
-  // if (time >= 10) {
-  //   timerEl.textContent = `${time}s`;
-  // } else if (time < 10 && time >= 0) {
-  //   timerEl.textContent = `0${time}s`;
-  // } else {
-  //   endQuiz(points);
-  // }
-
+  
   time >= 10
     ? (timerEl.textContent = `${time}s`)
     : time < 10 && time >= 0
