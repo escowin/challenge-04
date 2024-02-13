@@ -348,11 +348,12 @@ label {
 
 @media screen and (min-width: 1024px) {
     body {
-        padding: 2rem 10rem;
+        padding: 2rem 8em;
+        gap: 2rem;
     }
 
     header {
-        row-gap: 4rem;
+        row-gap: 2rem;
     }
 
     .subheader,
