@@ -125,7 +125,7 @@ function endQuiz() {
 
   //   undim scoreboardBtn; if user clicks the button, run displayScoreboard
   const scoreboardBtn = document.getElementById("scoreboard-btn");
-  scoreboardBtn.className = "btn-active";
+  scoreboardBtn.className = "button btn-active";
   saveScore();
 }
 

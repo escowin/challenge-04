@@ -1,8 +1,8 @@
 /* base palette */
 :root {
-    --primary: rgb(71, 7, 7);
-    --secondary: rgb(237, 170, 150);
-    --tertiary: rgb(168, 240, 212);
+    --primary: rgb(10, 9, 9);
+    --secondary: rgb(255, 233, 233);
+    --tertiary: rgb(193, 225, 251);
     --correct: rgb(24, 136, 138);
     --wrong: rgb(124, 18, 18);
     --clear: rgba(239, 239, 239, 0.9);
@@ -19,29 +19,46 @@
     box-sizing: border-box;
 }
 
-
 a {
     color: inherit;
     text-decoration: none;
     text-shadow: 0 0 1vw var(--secondary);
     transition: 1s;
-}
 
-a:hover {
-    color: var(--tertiary);
-    text-shadow: 0 0 1vw var(--tertiary);
+    &:hover {
+        color: var(--tertiary);
+        text-shadow: 0 0 1vw var(--tertiary);
+    }
 }
 
 body {
+    background-color: var(--primary);
+    color: var(--secondary);
     display: flex;
     flex-direction: column;
+    gap: 5rem;
+    min-height: 100vh;
     padding: 2rem 1rem;
     text-align: center;
-    width: 100%;
-    background-color: var(--primary);
-    min-height: 100vh;
-    color: var(--secondary);
-    gap: 5rem;
+}
+
+/* II. Rule of Thirds */
+header {
+    display: grid;
+    grid-template-areas:
+        "scorebtn . timer"
+        "header header header";
+    align-items: center;
+    row-gap: 1rem;
+    font-variant: small-caps;
+    letter-spacing: .25rem;
+}
+
+main {
+    border-radius: 1rem;
+    flex-grow: 1;
+    padding: 1rem;
+    transition: 1s;
 }
 
 footer {
@@ -49,19 +66,9 @@ footer {
     letter-spacing: .25rem;
 }
 
-header {
-    min-height: 10vh;
-    display: grid;
-    grid-template-areas:
-        "scorebtn . timer"
-        "header header header";
-    align-items: center;
-    row-gap: 1rem;
-}
-
+/* III. Nested semantic elements */
+/* Header siblings */
 header * {
-    min-height: 1rem;
-    font-variant: small-caps;
     letter-spacing: .25rem;
 }
 
@@ -73,22 +80,32 @@ header * {
 
 #timer {
     color: var(--tertiary);
+    font-family: Silkscreen;
     text-shadow: 0 0 .5rem var(--tertiary);
     grid-area: timer;
-    font-family: Silkscreen;
 }
 
-main {
-    /* margin: 2rem 0 0 0; */
-    transition: 1s;
-    padding: 1rem;
-    flex-grow: 1;
-    border-radius: 1rem;
-}
-
+/* Main siblings */
 .container {
     border-radius: .5rem;
     transition: 1s;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#rules-container {
+    justify-content: space-between;
+    align-items: center;
+    text-shadow: 0 0 1vw var(--secondary);
+    padding: 0 2rem;
+
+    & #rules {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
 }
 
 .correct {
@@ -101,67 +118,50 @@ main {
     box-shadow: 0 0 .75rem .75rem var(--wrong);
 }
 
-#rules-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-shadow: 0 0 1vw var(--secondary);
-}
-
 .subheader {
     font-variant: small-caps;
     letter-spacing: .5rem;
     font-size: 1.25rem;
 }
 
-#rules {
-    text-align: left;
-    margin: 1rem 0;
-}
-
-#rules li {
-    margin-left: 2rem;
-    margin-bottom: .5rem;
-}
-
 #question-container {
-    display: flex;
-    flex-direction: column;
-}
+    & #question {
+        font-size: 1.25rem;
+        font-weight: lighter;
+        text-align: left;
+        text-shadow: 0 0 .25rem var(--secondary);
+    }
 
-#question {
-    font-size: 1.25rem;
-    text-align: left;
-    text-shadow: 0 0 .25rem var(--secondary);
-    font-weight: lighter;
-}
+    & #answers {
+        gap: 2rem;
 
-.answer {
-    margin: 2rem .15rem;
-    padding: 1rem 1.25rem;
-    text-align: left;
-    border-radius: 2rem;
-    background-color: var(--primary);
-    box-shadow: inset 0 0 .75rem var(--secondary), 0 0 .75rem var(--secondary);
-    text-shadow: 0 0 .25rem var(--secondary);
-    cursor: pointer;
-    transition-duration: 2s;
-}
+        & .answer {
+            background-color: var(--primary);
+            border-radius: 2rem;
+            box-shadow: inset 0 0 .75rem var(--secondary), 0 0 .75rem var(--secondary);
+            cursor: pointer;
+            padding: 1rem 1.25rem;
+            text-align: left;
+            text-shadow: 0 0 .25rem var(--secondary);
+            transition-duration: 2s;
 
-.answer:hover {
-    background-color: var(--tertiary);
-    color: var(--primary);
-    box-shadow: 0 0 40px var(--tertiary);
+            &:hover {
+                background-color: var(--tertiary);
+                box-shadow: 0 0 40px var(--tertiary);
+                color: var(--primary);
+            }
+        }
+    }
 }
 
 /* save form */
 #save-form {
     display: flex;
     flex-direction: column;
-    padding: 1vw;
-    min-height: 15vh;
     justify-content: space-between;
+    padding: 1vw;
+    gap: 2rem
+    /* min-height: 15vh; */
 }
 
 #save-form .subheader {
@@ -173,7 +173,6 @@ main {
     display: grid;
     grid-template-columns: 35% 30% 35%;
     align-items: center;
-    margin: 2rem 0;
 }
 
 #initials-container * {
@@ -192,11 +191,11 @@ main {
     transition: 1s;
     letter-spacing: .75rem;
     font-family: 'Silkscreen', cursive;
-}
 
-#initials-input:focus {
-    box-shadow: inset 0 0 1rem var(--secondary), 0 0 1vw var(--secondary);
-    text-shadow: 0 0 1rem var(--clear);
+    &:focus {
+        box-shadow: inset 0 0 1rem var(--secondary), 0 0 1vw var(--secondary);
+        text-shadow: 0 0 1rem var(--clear);
+    }
 }
 
 #points {
@@ -204,52 +203,45 @@ main {
     text-align: left;
 }
 
-#save-button {
-    font-family: Silkscreen;
-    padding: .5rem 4rem;
-    margin: 2rem auto;
-}
-
 /* scoreboard */
 #scoreboard {
     display: flex;
     flex-direction: column;
-    margin: 1rem auto 4rem auto;
     max-width: max-content;
+
+    & #scoreboard-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+
+        & h2 {
+            color: var(--tertiary);
+            font-size: 2rem;
+            font-variant: small-caps;
+            grid-column: span 3;
+            letter-spacing: .75rem;
+            text-shadow: 0 0 1vw var(--tertiary);
+        }
+    }
+
+    & p {
+        text-shadow: 0 0 .5rem var(--secondary);
+        font-size: 1.5rem;
+    }
 }
 
-#scoreboard-header {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-
-#scoreboard h2 {
-    font-variant: small-caps;
-    font-size: 2rem;
-    letter-spacing: .75rem;
-    grid-column: span 3;
-    color: var(--tertiary);
-    text-shadow: 0 0 1vw var(--tertiary);
-    margin-bottom: .75rem;
-}
-
-#scoreboard p {
-    text-shadow: 0 0 .5rem var(--secondary);
-    font-size: 1.5rem;
-}
-
-.saved-score {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+.initials {
+    padding-left: 1rem;
+    letter-spacing: 1rem;
 }
 
 .rank {
     text-align: start;
 }
 
-.initials {
-    padding-left: 1rem;
-    letter-spacing: 1rem;
+.saved-score {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .score {
@@ -267,22 +259,29 @@ label {
 
 /* buttons */
 .button {
-    border-radius: 40px;
-    border: none;
-    outline: none;
-    box-shadow: 0 0 2rem var(--secondary);
-    transition-duration: 1s;
     background-color: var(--clear);
+    box-shadow: 0 0 2rem var(--secondary);
+    border-radius: 1rem;
+    border: none;
+    font-family: Silkscreen;
+    outline: none;
+    padding: 1rem 2rem;
+    transition: 1s;
+
+    &:hover {
+        background-color: var(--primary);
+        color: var(--secondary);
+        box-shadow: 0 0 2rem var(--tertiary);
+    }
+}
+
+#start-button,
+#replay-button {
+    text-shadow: 0 0 .25rem var(--secondary);
 }
 
 #scoreboard-btn {
-    border-radius: 1rem;
-    padding: .25rem;
-    grid-area: scorebtn;
-    border: none;
-    font-family: Silkscreen;
     background-color: transparent;
-    transition: 1s;
 }
 
 .btn-inactive {
@@ -304,19 +303,6 @@ label {
 .clear {
     color: var(--clear);
     text-shadow: 0 0 1vw var(--clear);
-}
-
-#start-button, #replay-button {
-    margin: 1rem;
-    padding: 1rem;
-    font-family: Silkscreen;
-    text-shadow: 0 0 .25rem var(--secondary);
-}
-
-.button:hover {
-    background-color: var(--primary);
-    color: var(--secondary);
-    box-shadow: 0 0 2rem var(--tertiary);
 }
 
 @media screen and (min-width: 768px) {
@@ -341,7 +327,9 @@ label {
         font-size: 1.5rem;
     }
 
-    #start-button, #replay-button, #save-button {
+    #start-button,
+    #replay-button,
+    #save-button {
         font-size: 1.25rem;
     }
 
@@ -359,6 +347,10 @@ label {
 }
 
 @media screen and (min-width: 1024px) {
+    body {
+        padding: 2rem 10rem;
+    }
+
     header {
         row-gap: 4rem;
     }
@@ -370,8 +362,7 @@ label {
 
     #rules,
     #start-button,
-    #replay-button
-    #answers,
+    #replay-button #answers,
     #initials-container *,
     #save-button {
         font-size: 1.5rem;
